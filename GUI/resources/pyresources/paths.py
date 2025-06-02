@@ -34,8 +34,8 @@ class Paths:
 
     # Paths de imágenes
     class Images:
-        #LOGO = os.path.join(base_paths.gui_root, 'resources', 'images', 'logoVictor.jpeg')
-        LOGO = os.path.join(base_paths.gui_root, 'resources', 'images', 'LogoDiego4.png')
+        
+        LOGO = os.path.join(base_paths.gui_root, 'resources', 'images', 'logo.png')
         DirectionDist = os.path.join(base_paths.gui_root, 'resources', 'images', 'DirectionDist.png')
         Geometry = os.path.join(base_paths.gui_root, 'resources', 'images', 'Geometry.png')
 

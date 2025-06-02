@@ -22,15 +22,10 @@ This documentation describes the GAMOS (Geant4-based Architecture for Medicine-O
    bash_script
    output
    plugins_rst/index.rst
-   python_scripts_rst/index.rst
    GUI_rst/index.rst
    references
 
-.. toctree::
-   :maxdepth: 4
-   :caption: Modules:
-   
-   modules
+
 
 
 Indices and tables
