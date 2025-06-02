@@ -1,0 +1,37 @@
+{
+    "header": [
+      "################",
+      "# PHYSIC SETUP #",
+      "################"
+    ],
+    "physics_lists": {
+      "GmEMPhysics": [
+        "#Physics EMstandard",
+        "/gamos/physicsList GmEMPhysics"
+      ],
+      "PhysicsListPC": [
+        "#Physics EMstandard",
+        "/gamos/physicsList PhysicsListPC"
+      ],
+      "emstandard_opt4": [
+        "#Physics for AAPM dosimetry",
+        "/gamos/physicsList GmEMStandardPhysics",
+        "/gamos/EMStandardPhysics/replacePhysics emstandard_opt4"
+      ]
+    },
+    "other_params": {
+      "range": [
+          "#Set CUT-OFF. Range",
+          "/run/setCut {Range}"
+      ],
+      "generator": [
+        "#Generator",
+        "/gamos/generator GmGenerator"
+      ],
+      "run_g4": [
+        "#INITIALISE GEANT4", 
+        "/run/initialize" 
+      ] 
+    }
+  }
+  

@@ -1,0 +1,79 @@
+{
+    "header": [
+      "#################",
+      "# FILTERS SETUP #",
+      "#################"
+    ],
+    "filters": [
+      "# Photons affected by Rayleigh scattering",
+      "/gamos/filter RL GmProcessFilter Rayl",
+      "# Photons affected by Compton scattering",
+      "/gamos/filter Cmp GmProcessFilter compt",
+      "# Scattered photons filter",
+      "/gamos/filter ScTT GmORFilter RL Cmp"
+    ],
+    "kill_photons_jaws": {
+      "Yes": [
+        "# kill photons at the jaws",
+        "/gamos/filter KillJawsx1 GmEnterPhysicalVolumeFilter x1jaw",
+        "/gamos/filter KillJawsx2 GmEnterPhysicalVolumeFilter x2jaw",
+        "/gamos/filter KillJawsy1 GmEnterPhysicalVolumeFilter y1jaw",
+        "/gamos/filter KillJawsy2 GmEnterPhysicalVolumeFilter y2jaw",
+        "/gamos/filter killJaws GmORFilter KillJawsx1 KillJawsx2 KillJawsy1 KillJawsy2"
+      ],
+      "No": [
+        "# kill photons at the jaws",
+        "#/gamos/filter KillJawsx1 GmEnterPhysicalVolumeFilter x1jaw",
+        "#/gamos/filter KillJawsx2 GmEnterPhysicalVolumeFilter x2jaw",
+        "#/gamos/filter KillJawsy1 GmEnterPhysicalVolumeFilter y1jaw",
+        "#/gamos/filter KillJawsy2 GmEnterPhysicalVolumeFilter y2jaw",
+        "#/gamos/filter killJaws GmORFilter KillJawsx1 KillJawsx2 KillJawsy1 KillJawsy2"
+      ]
+    },
+    "apply_filters": [
+      "#################",
+      "# APPLY FILTERS #",
+      "#################"
+    ],
+    "apply_filter1": {
+      "Yes": [
+        "#Apply Filter1, Kill all electrons",
+        "/gamos/userAction GmKillAtStackingActionUA GmElectronFilter"
+      ],
+      "No": [
+        "#Apply Filter1, Kill all electrons",
+        "#/gamos/userAction GmKillAtStackingActionUA GmElectronFilter"
+      ]
+    },
+    "apply_filter2": {
+      "Yes": [
+        "#Apply Filter2, Kill secondary tracks",
+        "/gamos/userAction GmKillAtSteppingActionUA GmSecondaryFilter"
+      ],
+      "No": [
+        "#Apply Filter2, Kill secondary tracks",
+        "#/gamos/userAction GmKillAtSteppingActionUA GmSecondaryFilter"
+      ]
+    },
+    "apply_filter3": {
+      "Yes": [
+        "#Apply Filter3, Kill scattered photons",
+        "/gamos/userAction GmKillAtSteppingActionUA ScTT"
+      ],
+      "No": [
+        "#Apply Filter3, Kill scattered photons",
+        "#/gamos/userAction GmKillAtSteppingActionUA ScTT"
+      ]
+    },
+    "apply_filter4": {
+      "Yes": [
+        "#Apply Filter4, Kill photons at the jaws",
+        "/gamos/userAction GmKillAtSteppingActionUA killJaws"
+      ],
+      "No": [
+        "#Apply Filter4, Kill photons at the jaws",
+        "#/gamos/userAction GmKillAtSteppingActionUA killJaws"
+      ]
+    }
+  }
+  

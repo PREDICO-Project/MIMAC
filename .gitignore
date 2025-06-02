@@ -1,0 +1,35 @@
+__pycache__/
+
+# Virtual Environment
+venv/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Docs
+docs/_build/
+
+# Folders
+geom/elementsInWorld/
+geom/worlds/
+inputs/
+data/g4dcm/
+data/dcm/
+data/new_mhd/
+data/original_mhd/
+main_files/
+output/
+docs/_build/
+
+
+# Formats
+*.tif
+*.dcm
+*.log
+*.vrml
+*.out
+*.g4dcm
+*.mhd
+*.raw
+
+

@@ -1,0 +1,34 @@
+{
+    "header": [
+        "#####################################",
+        "##       Write Energy Matrix       ##",
+        "#####################################",
+        ""
+    ],
+    "matrix_generation": [
+        "# Matrix with energy generation (comment detector generation in geom/world.geom or G4_Galactic as Material)",
+        "/gamos/setParam GetEnergy:NumPixelsX {NPixelX}",
+        "/gamos/setParam GetEnergy:NumPixelsY {NPixelY}",
+        "/gamos/setParam GetEnergy:PixelSizeX {PixelSizeX}",
+        "/gamos/setParam GetEnergy:PixelSizeY {PixelSizeY}",
+        "/gamos/setParam GetEnergy:zStop {SDD}",
+        ""
+    ],
+    "anti_scatter_grid": [
+        "#####################################",
+        "##      AntiScatter Grid           ##",
+        "#####################################",
+        "",
+        "/gamos/setParam Grid:UseGrid {UseAntiScatterGrid}",
+        "",
+        "/gamos/setParam Grid:Ratio {GridRatio}",
+        "/gamos/setParam Grid:SourceDetectorDistance {SDD}",
+        "/gamos/setParam Grid:Frequency {GridFrequency}",
+        "/gamos/setParam Grid:StripThickness {GridStripThickness}",
+        "/gamos/setParam Grid:Gap {Gap}",
+        ""
+    ],
+    "user_action": [
+        "/gamos/userAction GmGetEnergy"
+    ]
+}

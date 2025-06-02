@@ -1,0 +1,18 @@
+{
+    "header": [
+        "#############################",
+        "# VOXELIZED PHANTOM SETUP #",
+        "###########################",
+        ""
+    ],
+    "parameters": [
+        "# File definition for loading a VOXELIZED PHANTOM",
+        "/P GmReadPhantomGeometry:Phantom:FileName data/g4dcm/{VoxelPhantom}",
+        "/P GmReadPhantomGeometry:FileName geom/worlds/{WorldFile}",
+        "/P GmReadPhantomGeometry:MotherName world",
+        "/P GmReadPhantomGeometry:Phantom:SkipEqualMaterials 1",
+        "/P GmReadPhantomGeometry:InitialDisplacement {OriginX} {OriginY} {OriginZ}",
+        "",
+        "/gamos/geometry GmReadPhantomG4Geometry"
+    ]
+}

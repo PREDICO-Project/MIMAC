@@ -1,0 +1,11 @@
+{
+    "main_parameters": {
+        "Magnitude": "Energy",
+        "MeanElectronicNoise": 5200,
+        "SwankFactor": 0.99,
+        "ApplyKernel": "No",
+        "KernelSize": 5,
+        "KernelSigma": 0.46,
+        "NormMethod": "VD Sensitivity Curve" 
+    }
+}

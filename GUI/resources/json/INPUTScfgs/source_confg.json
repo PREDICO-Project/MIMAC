@@ -1,0 +1,32 @@
+{
+  "header": [
+      "########################",
+      "##    SOURCE Setup    ##",
+      "########################",
+      "",
+      "#Initialization"
+  ],
+  "initialization": "/gamos/generator/addSingleParticleSource source {Particle} {Energy}*MeV",
+  "spectra": {
+      "header": "#Spectra",
+      "None": "#/gamos/generator/energyDist source GmGenerDistEnergyFromFile spectra/{Spectra} interpolate",
+      "default": "/gamos/generator/energyDist source GmGenerDistEnergyFromFile spectra/{Spectra} interpolate"
+  },
+  "position_distribution": {
+      "header": "#Position Distribution",
+      "Single_point_Yes": "/gamos/generator/positionDist source GmGenerDistPositionPoint {DetectorSizeX} 0. 0.",
+      "Single_point_No": "/gamos/generator/positionDist source GmGenerDistPositionPoint {SourcePosX} {SourcePosY} 0.",
+      "Gaussian_disc_Yes": "/gamos/generator/positionDist source GmGenerDistPositionDiscGaussian {FocusSize} {DetectorSizeX} 0. 0. 0. 0. -1.",
+      "Gaussian_disc_No": "/gamos/generator/positionDist source GmGenerDistPositionDisc {FocusSize} {SourcePosX} {SourcePosY} 0. 0. 0. -1."
+  },
+  "distribution_shape": {
+      "header": "#Distribution Shape",
+      "Pyramid_Isotropic_No": "/gamos/generator/directionDist source Pyr_Dist_Isotropic 0. 0. 1. {SDD} {PyramidX} {PyramidY} 0. 0.",
+      "Pyramid_Isotropic_Yes": "/gamos/generator/directionDist source Pyr_Dist_Isotropic 0. 0. 1. {SDD} {DetectorSizeX} {DetectorSizeY} 0. 0.",
+      "Constant": "/gamos/generator/directionDist source GmGenerDistDirectionConst 0. 0. 1.",
+      "Cone_Yes": "/gamos/generator/directionDist source GmGenerDistDirectionCone 0. 0. 1. {CalculatedTheta}*deg",
+      "Cone_No": "/gamos/generator/directionDist source GmGenerDistDirectionCone 0. 0. 1. {ConeAngle}*deg",
+      "SemiCone_Yes": "/gamos/generator/directionDist source SemiCone_Dist 0. 0. 1. {CalculatedTheta}*deg",
+      "SemiCone_No": "/gamos/generator/directionDist source SemiCone_Dist 0. 0. 1. {ConeAngle}*deg"
+  }
+}

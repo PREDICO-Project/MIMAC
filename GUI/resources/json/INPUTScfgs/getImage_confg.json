@@ -1,0 +1,68 @@
+{
+  "header": [
+    "########################",
+    "# DETECTOR MODEL SETUP #",
+    "########################"
+  ],
+  "detector": {
+    "MCD": [
+      "# Physical detector segmentation", 
+      "/gamos/setParam SD:VirtSegmBox:NDiv:Absorber {NpixelsX} {NpixelsY} 1.", 
+      "/gamos/setParam SD:VirtSegmBox:Width:Absorber {detectorSizeX} {detectorSizeY} {detectorSizeZ}", 
+      "/gamos/SD/assocSD2LogVol GmSDVirtSegmBox Absorber detector",
+      "/gamos/SD/recHitBuilder GmRecHitBuilder1to1 Absorber"
+    ],
+    "VD":[
+      "# Virtual detector segmentation", 
+      "#/gamos/setParam SD:VirtSegmBox:NDiv:Absorber {NpixelsX} {NpixelsY} 1.", 
+      "#/gamos/setParam SD:VirtSegmBox:Width:Absorber {detectorSizeX} {detectorSizeY} {detectorSizeZ}", 
+      "#/gamos/SD/assocSD2LogVol GmSDVirtSegmBox Absorber detector",
+      "#/gamos/SD/recHitBuilder GmRecHitBuilderBydose Absorber"
+    ],
+    "No":[
+      "# No detector Model used"
+    ]
+  },
+  "parameters":{
+    "params":[
+      "/gamos/setParam GetImage:NumPixelsX {NpixelsX}",
+      "/gamos/setParam GetImage:NumPixelsY {NpixelsY}",
+      "/gamos/setParam GetImage:PixelSizeX {pixelSizeX}",
+      "/gamos/setParam GetImage:PixelSizeY {pixelSizeY}",
+      "/gamos/setParam GetImage:DetectorThickness {detectorSizeZ}",
+      "/gamos/setParam GetImage:zStop {zStop}",
+      "/gamos/setParam GetImage:DetectorMaterial {material}",
+      "/gamos/setParam GetImage:PairCreationEnergy {PairCreationEnergy}"
+    ],
+    "Output": [
+      "################", 
+      "# OUTPUT SETUP #",
+      "################", 
+      "",
+      "/gamos/setParam GetImage:DetectorModel {DetectorModel}",
+      "/gamos/setParam GetImage:OutputType {OutputType}",
+      "/gamos/setParam GetImage:ResultsFolder output/",
+      "/gamos/setParam GetImage:OutputFilename {OutputFilename}",
+      "/gamos/setParam GetImage:OutputFormat {OutputFormat}"
+    ],
+    "AntiScatterGrid": [
+      "#####################", 
+      "# ANTI-SCATTER GRID #", 
+      "#####################",
+      "",
+      "/gamos/setParam Grid:UseGrid {UseAntiScatterGrid}",
+      "/gamos/setParam Grid:Ratio {GridRatio}",
+      "/gamos/setParam Grid:SourceDetectorDistance {zStop}",
+      "/gamos/setParam Grid:Frequency {GridFrequency}",
+      "/gamos/setParam Grid:StripThickness {GridStripThickness}",
+      "/gamos/setParam Grid:Gap {gap}"
+    ],
+    "UserAction":[
+      "####################",
+      "# USER ACTION CALL #", 
+      "####################",
+      "", 
+      "/gamos/userAction GmGetImage"
+    ]
+  }
+}

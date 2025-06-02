@@ -1,0 +1,51 @@
+{
+    "header": [
+        "#######################",
+        "##     JAWS  Setup   ##",
+        "#######################",
+        ""
+    ],
+    "rotation_matrix": [
+        "# Rotation Matrix",
+        ":ROTM RMJ0 0. 0. 0."
+    ],
+    "jaw_apertures": [
+        "# Jaws aperture",
+        ":P Y1JawAperture {JAy1}",
+        ":P Y2JawAperture {JAy2}",
+        ":P X1JawAperture {JAx1}",
+        ":P X2JawAperture {JAx2}"
+    ],
+    "jaw_dimensions": [
+        "# Jaws Dimensions",
+        ":P JyLD {JyLD}",
+        ":P JxLD {JxLD}",
+        ":P JawShortDimension {JawShortDimension}",
+        ":P JawOverlap {JawOverlap}",
+        ":P JawsDepth {JawsDepth}"
+    ],
+    "geometry_params": [
+        "# Geometry Parameters",
+        ":P DeltaZJaws {DeltaZJaws}",
+        ":P SJD {SJD}"
+    ],
+    "jaws_structure": {
+        "y1": [
+            ":VOLU y1jaw BOX (0.5*$JyLD+$JawOverlap) 0.5*$JawShortDimension 0.5*$JawsDepth G4_Pb",
+            ":PLACE y1jaw 1 world RMJ0 -$X2JawAperture+0.5*$JyLD (0.5*$JawShortDimension+$Y1JawAperture) $SJD-$DeltaZJaws-$JawsDepth"
+        ],
+        "y2": [
+            ":VOLU y2jaw BOX (0.5*$JyLD+$JawOverlap) 0.5*$JawShortDimension 0.5*$JawsDepth G4_Pb",
+            ":PLACE y2jaw 1 world RMJ0 -$X2JawAperture+0.5*$JyLD -(0.5*$JawShortDimension+$Y2JawAperture) $SJD-$DeltaZJaws-$JawsDepth"
+        ],
+        "x1": [
+            ":VOLU x1jaw BOX 0.5*$JawShortDimension (0.5*$JxLD+$JawOverlap) 0.5*$JawsDepth G4_Pb",
+            ":PLACE x1jaw 1 world RMJ0 (0.5*$JawShortDimension+$X1JawAperture+5) 0. $SJD"
+        ],
+        "x2": [
+            ":VOLU x2jaw BOX 0.5*$JawShortDimension (0.5*$JxLD+$JawOverlap) 0.5*$JawsDepth G4_Pb",
+            ":PLACE x2jaw 1 world RMJ0 -(0.5*$JawShortDimension+$X2JawAperture+5) 0. $SJD",
+            ":COLOUR x2jaw 1.0 0. 0."
+        ]
+    }
+}

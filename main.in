@@ -1,0 +1,34 @@
+###################
+# MAIN FILE SETUP #
+###################
+
+
+# GEOMETRY SETUP
+/control/execute inputs/Geometry.in
+
+# PHYSIC SETUP
+/control/execute inputs/Physic.in
+
+# SOURCE SETUP
+/control/execute inputs/Source.in
+
+# FILTERS SETUP
+/control/execute inputs/Filters.in
+
+# DETECTOR SETUP
+/control/execute inputs/GetImage.in
+
+# CORING ON ION-CHAMBER SETUP
+#/control/execute inputs/ScoringIOC.in
+
+# VERBOSITY SETUP
+/gamos/log/writeFiles FALSE
+
+# VISUALIZATION FILE
+#/control/execute vis/visVRML2FILE.in
+
+# EXTRA PARAMETERS SETUP
+#/gamos/random/setSeeds 2142 22213
+
+# RUN N EVENTS
+/run/beamOn 1000000000

@@ -1,0 +1,43 @@
+{
+    "header": [
+        "#####################################",
+        "##          SCORER SETUP           ##",
+        "#####################################",
+        ""
+    ],
+    "mf_detector": [
+        "# Creating multifunctional detector",
+        "/gamos/scoring/createMFDetector IOC ionchamber",
+        ""
+    ],
+    "scorers": {
+        "kerma": [
+            "# Scorer link",
+            "/gamos/scoring/addScorer2MFD kerma GmG4PSKerma IOC",
+            ""
+        ],
+        "dose": [
+            "/gamos/scoring/addScorer2MFD Dose GmG4PSDoseDeposit IOC",
+            ""
+        ]
+    },
+    "scorer_errors": [
+        "# Scorer Errors",
+        "#/gamos/scoring/scoreErrors Dose FALSE",
+        "#/gamos/scoring/scoreErrors kerma FALSE",
+        ""
+    ],
+    "scorer_print": {
+        "kerma": [
+            "# Scorer Print results",
+            "/gamos/setParam GmPSPrinterTextFile:FileName output/{ScoringFileName}.out",
+            "/gamos/scoring/addPrinter2Scorer GmPSPrinterTextFile kerma",
+            ""
+        ],
+        "dose": [
+            "/gamos/setParam GmPSPrinterTextFile:FileName output/{ScoringFileName}.out",
+            "/gamos/scoring/addPrinter2Scorer GmPSPrinterTextFile Dose",
+            ""
+        ]
+    }
+}

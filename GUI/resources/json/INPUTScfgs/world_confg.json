@@ -1,0 +1,74 @@
+{
+    "header": [
+      "################",
+      "# WORLD SETUP  #",
+      "################",
+      ""
+    ],
+  
+    "materials": {
+      "title": "# -------------------------\n# 1. INCLUDED MATERIALS\n# -------------------------",
+      "lines": [
+        "# Definition of materials used in the simulation",
+        ":include geom/MyMaterials.txt"
+      ]
+    },
+  
+    "parameters": {
+      "title": "# ------------------------------\n# 2. GEOMETRIC PARAMETERS\n# ------------------------------",
+      "lines": [
+        "# Source-to-Object Distance",
+        ":P SOD {SOD}",
+  
+        "# Source-to-Detector Distance",
+        ":P SDD {SDD}",
+  
+        "# World size (depends on SDD)",
+        ":P WorldDimen $SDD*2+{WorldSizeBD}"
+      ]
+    },
+  
+    "world_definition": {
+      "title": "# ---------------------------\n# 3. WORLD DEFINITION\n# ---------------------------",
+      "lines": [
+        "# World volume: centered air-filled box",
+        ":VOLU world BOX 0.5*$WorldDimen 0.5*$WorldDimen 0.5*$WorldDimen {WorldFilled}",
+  
+        "# Hide world volume in the viewer",
+        ":VIS world OFF"
+      ]
+    },
+  
+    "elements": {
+      "title": "# -------------------------------\n# 4. ELEMENTS INCLUDED IN WORLD\n# -------------------------------",
+      "intro": "# You can enable or disable elements by commenting lines",
+      "comments": [
+        "# - Jaws (collimators)",
+        "# - Ionization Chamber",
+        "# - Phantom (test object)",
+        "# - Detector"
+      ]
+    },
+  
+    "jaws": {
+      "Yes": ":include geom/elementsInWorld/jaws.geom",
+      "No": "#:include geom/elementsInWorld/jaws.geom"
+    },
+  
+    "ioc": {
+      "Yes": ":include geom/elementsInWorld/Ion_Chamber.geom",
+      "No": "#:include geom/elementsInWorld/Ion_Chamber.geom"
+    },
+  
+    "phantom": {
+      "DICOM": "",
+      "None": "",
+      "default": ":include geom/elementsInWorld/{Phantom}"
+    },
+  
+    "detector": {
+      "Yes": ":include geom/elementsInWorld/detector.geom",
+      "No": "#:include geom/elementsInWorld/detector.geom"
+    }
+  }
+  

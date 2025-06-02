@@ -1,0 +1,19 @@
+{
+    "header": [
+        "##################",
+        "# GEOMETRY SETUP #",
+        "##################",
+        ""
+    ],
+    "voxelized_phantom": {
+        "Yes": [
+            "# Voxelized phantom ",
+            "/control/execute inputs/VoxelizedPhantom.in "
+        ],
+        "No": [
+            "# Standard geometry",
+            "/gamos/setParam GmGeometryFromText:FileName geom/worlds/{WorldFile} ",
+            "/gamos/geometry GmGeometryFromText "
+        ]
+    }
+}

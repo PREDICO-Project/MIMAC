@@ -1,0 +1,16 @@
+{
+    "Materials": "materials.txt",
+    "DCM": true,
+    "MHD": true,
+    "ResetOrigin": false,
+    "RemoveCW": true,
+    "IncludePaddle": false,
+    "RemoveAirSlices": false,
+    "FreeCut": false,
+    "SliceIni": 0,
+    "SliceEnd": 0,
+    "ColumIni": 0,
+    "ColumEnd": 0,
+    "RowIni": 0,
+    "RowEnd": 0
+}

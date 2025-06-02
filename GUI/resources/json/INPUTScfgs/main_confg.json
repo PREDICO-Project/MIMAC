@@ -1,0 +1,121 @@
+{
+    "header": {
+      "main_file_setup": [
+        "###################",
+        "# MAIN FILE SETUP #",
+        "###################",
+        ""
+      ]
+    },
+    "sections": {
+      "geometry": {
+        "Yes": [
+          "# GEOMETRY SETUP",
+          "/control/execute inputs/Geometry.in"
+        ],
+        "No": [          
+          "# GEOMETRY SETUP",
+          "#/control/execute inputs/Geometry.in"
+        ]
+      },
+      "physic": {
+        "Yes": [
+          "# PHYSIC SETUP",
+          "/control/execute inputs/Physic.in"
+        ],
+        "No": [
+          "# PHYSIC SETUP",
+          "#/control/execute inputs/Physic.in"
+        ]        
+      },
+      "source": {
+        "Yes": [
+          "# SOURCE SETUP",
+          "/control/execute inputs/Source.in"
+        ],
+        "No": [
+          "# SOURCE SETUP",
+          "#/control/execute inputs/Source.in"
+        ]        
+      },
+      "filters": {
+        "Yes": [
+          "# FILTERS SETUP",
+          "/control/execute inputs/Filters.in"
+        ],
+        "No": [
+          "# FILTERS SETUP",
+          "#/control/execute inputs/Filters.in"
+        ]        
+      },
+      "detector": {
+        "Yes": [
+          "# DETECTOR SETUP",
+          "/control/execute inputs/GetImage.in"
+        ],
+        "No": [
+          "# DETECTOR SETUP",
+          "#/control/execute inputs/GetImage.in"
+        ]        
+      },
+      "anaHistos": {
+        "Yes": [
+          "# ANA&HISTOS SETUP",
+          "/control/execute inputs/Output.in"
+        ],
+        "No": [
+          "# ANA&HISTOS SETUP",
+          "#/control/execute inputs/Output.in"
+        ]        
+      },
+      "scoringIOC": {
+        "Yes": [
+          "# SCORING ON ION-CHAMBER SETUP",
+          "/control/execute inputs/ScoringIOC.in"
+        ],
+        "No": [
+          "# CORING ON ION-CHAMBER SETUP",
+          "#/control/execute inputs/ScoringIOC.in"
+        ]        
+      },
+      "scoringMGD": {
+        "Yes": [
+          "# SCORING ON ION-CHAMBER SETUP",
+          "/control/execute inputs/ScoringMGD.in"
+        ],
+        "No": [
+          "# CORING ON ION-CHAMBER SETUP",
+          "#/control/execute inputs/ScoringMGD.in"
+        ]        
+      },
+      "verbosity": [
+          "# VERBOSITY SETUP",
+          "/gamos/log/writeFiles FALSE"
+      ],
+      "vis": {
+        "Yes": [
+          "# VISUALIZATION FILE",
+          "/control/execute vis/visVRML2FILE.in"
+        ],
+        "No": [
+          "# VISUALIZATION FILE",
+          "#/control/execute vis/visVRML2FILE.in"
+        ]        
+      },
+      "randomSeeds": {
+        "Yes": [
+          "# EXTRA PARAMETERS SETUP",
+          "#/gamos/random/setSeeds 2142 22213"
+        ],
+        "No": [
+          "# EXTRA PARAMETERS SETUP",
+          "/gamos/random/setSeeds {Seed1} {Seed2}"
+        ]
+      },
+      "nEvents": [
+        "# RUN N EVENTS",
+        "/run/beamOn {NEvents}"
+    ]  
+    }
+  }
+  

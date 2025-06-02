@@ -1,0 +1,42 @@
+{
+    "header": [
+      "########################",
+      "##   DETECTOR Setup   ##",
+      "########################"
+    ],
+    "rotation_matrix": [
+      "#Rot Matrix",
+      ":ROTM RMD0 0. 0. 0."
+    ],
+    "parameters": [
+      "#Params definition",
+      ":P NPixelX {NPixelX}",
+      ":P NPixelY {NPixelY}",
+      ":P PixelSizeX {PixelSizeX}",
+      ":P PixelSizeY {PixelSizeY}",
+      ":P DetectorDepth {DetectorDepth}",
+      ":P DetectorMarkSize 5.0",
+      ":P DetectorMarkDepth {DetectorDepth}",
+      ":P DetectorSizeX $NPixelX*$PixelSizeX",
+      ":P DetectorSizeY $NPixelY*$PixelSizeY"
+    ],
+    "volume_definition": [
+      "########################",
+      "##   VOL definition   ##",
+      "########################"
+    ],
+    "detector_structure": [
+      "#Detector structure Placed on Z-Axis",
+      ":VOLU detector BOX 0.5*$DetectorSizeX 0.5*$DetectorSizeY 0.5*$DetectorDepth {Material}",
+      ":PLACE detector 1 world RMD0 0. 0. $SDD+0.5*$DetectorDepth",
+      ":COLOUR detector 0. 0. 1.",
+      "#:VIS detector OFF"
+    ],
+    "detector_mark": [
+      "#Detector Mark",
+      ":VOLU DetectorMark BOX 0.5*$DetectorMarkSize 0.5*$DetectorMarkSize 0.5*$DetectorMarkDepth G4_Pb",
+      ":PLACE DetectorMark 1 detector RMD0 0.5*($DetectorSizeX-$DetectorMarkSize) 0.5*($DetectorSizeY-$DetectorMarkSize) 0.",
+      ":COLOUR DetectorMark 0.2 0.4 0.1"
+    ]
+  }
+  

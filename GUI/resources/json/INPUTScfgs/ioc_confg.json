@@ -1,0 +1,37 @@
+{
+    "header": [
+        "#############################",
+        "##     Ion Chamber Setup   ##",
+        "#############################",
+        ""
+    ],
+    "rotation_matrix": [
+        "# Rotation Matrix",
+        ":ROTM RMIOC 0. 0. 0.",
+        ""
+    ],
+    "dimensions": [
+        "# Ion Chamber Dimensions",
+        ":P IOCx {IOCx}",
+        ":P IOCy {IOCy}",
+        ":P IOCz {IOCz}",
+        ""
+    ],
+    "position": [
+        "# Ion Chamber Position",
+        ":P IOCSD {IOCDistanceFromS}",
+        ":P IOCCW {dfCW}",
+        ":P IOCLR {IOCLRPosition}",
+        ""
+    ],
+    "volume_definition": [
+        "###########################",
+        "##     Vol Definition    ##",
+        "###########################",
+        "",
+        "# Ion Chamber VOLUME",
+        ":VOLU ionchamber BOX 0.5*$IOCx 0.5*$IOCy 0.5*$IOCz {IOCMaterial}",
+        ":PLACE ionchamber 1 world RMIOC $IOCCW $IOCLR $IOCSD",
+        ":COLOUR ionchamber 0.5 0. 0.5"
+    ]
+}
