@@ -1,28 +1,21 @@
 {
-    "main_parameters": {
-        "GeometryFile": "Yes",
-        "PhysicFile": "Yes",
-        "SourceFile": "Yes",
-        "FiltersFile": "Yes",
-        "DetectorFile": "Yes",
-        "Ana&HistFile": "No",
-        "ScoringIOCFile": "No",
+    "main": {
         "RandomSeed": "Yes",
-        "Seed1": 2142,
-        "Seed2": 22213,
         "VisFile": "No",
-        "DeleteVisFiles": "No",
-        "NEvents": 1000000000
+        "DeleteVisFiles": "Yes",
+        "Seed1": 2142.0,
+        "Seed2": 22213.0,
+        "NEvents": 100000000
     },
     "geometry": {
         "WorldFile": "world.geom",
         "WorldFilled": "G4_AIR",
-        "SDD": 650.0,
+        "SDD": 750.0,
         "WorldSizeBD": 50.0,
-        "DICOMGeom": "No",   
+        "DICOMGeom": "No",
         "VoxelPhantom": "None",
-        "GeomtryPhantom": "SphereTest.geom", 
-        "SOD": 500.0,
+        "GeomtryPhantom": "None",
+        "SOD": 750.0,
         "UseJaws": "No",
         "AutoSizeJaws": "No",
         "Y1JawAperture": 11.55,
@@ -31,63 +24,61 @@
         "X2JawAperture": 75.0125,
         "JawsDepth": 5.0,
         "DeltaZJaws": 2.0,
-        "SJD": 100.0,
-        "UsePhysicalDetector": "Yes"
+        "SJD": 100.0
     },
-    "physic_filters": {
+    "physic": {
         "PhysicList": "GmEMPhysics",
         "Range": 1.0,
-        "ApplyF1": "Yes",
+        "ApplyF1": "No",
         "ApplyF2": "No",
         "ApplyF3": "No",
-        "ApplyF4": "No",
-        "ApplyF5": "No"
+        "ApplyF4": "No"
     },
     "source": {
         "Particle": "gamma",
-        "Energy": 0.85,
-        "PosDistribution": "Gaussian_disc",
-        "FocusSize": 0.3,
-        "Spectra": "28Mo-Rh0.05-Be1.in",
+        "Spectra": "25Mo-Rh0.025.in",
         "SpectraFilled": "histogram",
+        "PosDistribution": "Gaussian_disc",
         "Distribution": "Pyramid_Isotropic",
-        "AlignSource": "Yes",
+        "Energy": 0.85,
+        "FocusSize": 0.3,
         "SourcePosX": 0.0,
         "SourcePosY": 0.0,
-        "AutoSizeSource": "Yes",
         "ConeAngle": 5.77,
-        "PyramidX": 150.0,
-        "PyramidY": 150.0
+        "PyramidX": 20.0,
+        "PyramidY": 20.0,
+        "AlignSource": "No",
+        "AutoSizeSource": "No"
     },
-    "detector":{
-        "DetectorModel": "VD",
+    "detector": {
+        "DetectorModel": "No",
         "Material": "aSe",
-        "DetectorDepth": 0.2,        
+        "OutputFormat": "MHD/RAW",
+        "OutputType": "",
+        "DetectorDepth": 0.2,
+        "NPixelX": 1765.0,
+        "NPixelY": 1765.0,
         "PixelSizeX": 0.085,
         "PixelSizeY": 0.085,
-        "AutoSizeDetector": "Yes",
-        "NPixelX": 1765,
-        "NPixelY": 1765,       
-        "UseAntiScatterGrid": "Yes",
         "GridRatio": 5.0,
         "GridFrequency": 3.1,
         "GridStripThickness": 0.065,
-        "Weh":50.0,
-        "OutputType": "Charge",
-        "OutputFormat": "MHD/RAW",
-        "OutputFilename": "output_image"
+        "OutputFilename": "output_image",
+        "Weh": 50.0,
+        "UseAntiScatterGrid": "Yes",
+        "AutoSizeDetector": "No"
     },
-    "scoring":{
-        "UseIOC": "No",
-        "kerma": "No",
+    "scoring": {
+        "kerma": "Yes",
         "Dose": "No",
+        "UseIOC": "Yes",
         "IOCx": 20.0,
         "IOCy": 20.0,
         "IOCz": 5.0,
         "IOCMaterial": "G4_AIR",
-        "IOCDistanceFromCW": 30.0,
-        "IOCDistanceFromS": 550.0,
+        "IOCDistanceFromCW": 75.0,
+        "IOCDistanceFromS": 750.0,
         "IOCLRPosition": 0.0,
-        "ScoringFileName": "kerma"
+        "ScoringFileName": "kerma_25Mo-Rh0.025"
     }
 }
