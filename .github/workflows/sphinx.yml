@@ -12,7 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -21,7 +22,7 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
+    - name: Install Python dependencies
       run: |
         pip install sphinx nbsphinx sphinx-rtd-theme
 
@@ -30,19 +31,30 @@ jobs:
         cd docs
         make html
 
-    
-    - name: Clone gh-pages branch
+    - name: Clone gh-pages branch (or create if missing)
       run: |
-        git clone --branch gh-pages https://github.com/PREDICO-Project/MIMAC.git gh-pages
-  
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git clone --branch gh-pages https://${{ secrets.GITHUB_TOKEN }}@github.com/PREDICO-Project/MIMAC.git gh-pages || \
+        (git clone https://${{ secrets.GITHUB_TOKEN }}@github.com/PREDICO-Project/MIMAC.git gh-pages && \
+         cd gh-pages && \
+         git checkout --orphan gh-pages && \
+         git rm -rf . && \
+         touch .nojekyll && \
+         git add .nojekyll && \
+         git commit -m "Initialize gh-pages" && \
+         git push origin gh-pages)
+
+    - name: Copy HTML to gh-pages and commit
+      run: |
+        rm -rf gh-pages/*
         cp -r docs/_build/html/* gh-pages/
         cd gh-pages
         touch .nojekyll
-        git config user.email "action@github.com"
-        git config user.name "GitHub Action"
         git add .
         git commit -m "Update documentation" -a || echo "No changes to commit"
 
-    - name: Push changes to gh-pages
+    - name: Push to gh-pages
       run: |
+        cd gh-pages
         git push origin gh-pages
