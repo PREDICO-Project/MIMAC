@@ -28,7 +28,6 @@ This documentation describes the GAMOS (Geant4-based Architecture for Medicine-O
 
 
 
-
 Indices and tables
 ==================
 
