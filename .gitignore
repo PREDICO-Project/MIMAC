@@ -10,8 +10,6 @@ venv/
 docs/_build/
 
 # Folders
-geom/elementsInWorld/
-geom/worlds/
 main_files/
 docs/_build/
 
