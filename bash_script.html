@@ -1,0 +1,237 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bash script &mdash; MIMAC 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Output" href="output.html" />
+    <link rel="prev" title="Scoring" href="inputs_rst/scoring.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to.html">How to run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="victre/index.html">Phantom Generation using VICTRE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs_rst/index.html">Inputs Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins_rst/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUI_rst/index.html">GUI Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MIMAC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Bash script</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/bash_script.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bash-script">
+<h1>Bash script<a class="headerlink" href="#bash-script" title="Link to this heading"></a></h1>
+<p>There is a .sh script to perform several runs at the same time with the same simulation configuration. It is based on a script developed by Pedro Arce (author of GAMOS) <a class="reference internal" href="references.html"><span class="doc">[1]</span></a> but with modifications based on our simulation.</p>
+<p>Ther are some important notes about this script.</p>
+<ul class="simple">
+<li><p>The variable <code class="docutils literal notranslate"><span class="pre">NCORES</span></code> must be changed based on your computer. It is the number of cores used on the simulation, if your computer have 30 cores, NCORES must not be 30 or more.</p></li>
+<li><p>The path where the .out files will be saved must be rewritten on each run usign the variable <code class="docutils literal notranslate"><span class="pre">OUTPUT_PATH</span></code>.</p></li>
+<li><p>Once the script has been modified, you can run it as follows:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="go">bash sendrun.sh NRUNS SEED</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">NRUNS</span></code> is the number of runs we want to perform and <code class="docutils literal notranslate"><span class="pre">SEED</span></code> will be the initial seed of the main_0 generated file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Important!!! Modify the output path and make sure the folder exists.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash
+
+# ----------- Argument validation ----------- #
+NRUNS=$1
+SEED=$2
+NCORES=20
+
+if [[ -z &quot;$NRUNS&quot; || ! &quot;$NRUNS&quot; =~ ^[0-9]+$ ]]; then
+    echo &quot;Usage: $0 &lt;NRUNS&gt; [SEED]&quot;
+    echo &quot;NRUNS must be a positive integer.&quot;
+    exit 1
+fi
+
+# ----------- Generate random seed if not provided ----------- #
+if [[ -z &quot;$SEED&quot; ]]; then
+    SEED=$(date +%s%N | cut -b1-9)  # Nano timestamp, first 9 digits
+    echo &quot;[INFO] No seed provided. Generated random seed: $SEED&quot;
+fi
+
+# ----------- Define output folder using timestamp and seed ----------- #
+TIMESTAMP=$(date +&quot;%Y%m%d_%H%M%S&quot;)
+OUTPUT_PATH=&quot;output/run_${TIMESTAMP}_seed${SEED}/&quot;
+
+echo &quot;[INFO] Creating output directories...&quot;
+mkdir -p &quot;$OUTPUT_PATH&quot; &quot;$OUTPUT_PATH/main_files&quot; &quot;$OUTPUT_PATH/inputs_tmp&quot; &quot;$OUTPUT_PATH/logs&quot;
+
+inputs_tmp=&quot;$OUTPUT_PATH/inputs_tmp&quot;
+main_files=&quot;$OUTPUT_PATH/main_files&quot;
+logs=&quot;$OUTPUT_PATH/logs&quot;
+
+# ----------- Save execution parameters ----------- #
+{
+    echo &quot;NRUNS=$NRUNS&quot;
+    echo &quot;SEED=$SEED&quot;
+    echo &quot;TIMESTAMP=$TIMESTAMP&quot;
+    echo &quot;NCORES=$NCORES&quot;
+} &gt; &quot;$OUTPUT_PATH/run_info.txt&quot;
+
+# ----------- Determine max concurrent jobs ----------- #
+MAX_JOBS=$(( NRUNS &lt; NCORES ? NRUNS : NCORES ))
+
+echo &quot;[INFO] Running $NRUNS simulations with up to $MAX_JOBS concurrent jobs...&quot;
+echo &quot;[INFO] Output will be saved in: $OUTPUT_PATH&quot;
+
+# ----------- Launch simulation jobs ----------- #
+for ((nj=0; nj&lt;NRUNS; nj++)); do
+    SUFFIX=$nj
+    echo &quot;[INFO] Launching job $nj with suffix $SUFFIX...&quot;
+
+    # Create customized GetImage_$SUFFIX.in
+    awk -v SUFFIX=$SUFFIX -v OUTPUT_PATH=$OUTPUT_PATH &#39;{
+        if ($2==&quot;GetImage:ResultsFolder&quot;) {
+            printf(&quot;/gamos/setParam GetImage:ResultsFolder %s\n&quot;, OUTPUT_PATH)
+        } else if ($2==&quot;GetImage:OutputFilename&quot;) {
+            printf(&quot;/gamos/setParam GetImage:OutputFilename image_%s\n&quot;, SUFFIX)
+        } else {
+            print $0
+        }
+    }&#39; inputs/GetImage.in &gt; &quot;$inputs_tmp/GetImage_$SUFFIX.in&quot;
+
+    # Compute unique seeds
+    seed1=$((SEED + 2 * nj))
+    seed2=$((SEED + 2 * nj + 1))
+
+    # Create customized main_$SUFFIX.inn
+    awk -v SUFFIX=$SUFFIX -v s1=$seed1 -v s2=$seed2 -v TMP_INPUTS=$inputs_tmp &#39;{
+        if ($2==&quot;inputs/GetImage.in&quot;) {
+            printf(&quot;/control/execute %s/GetImage_%s.in\n&quot;, TMP_INPUTS, SUFFIX)
+        } else if ($1==&quot;/gamos/random/setSeeds&quot;) {
+            printf(&quot;/gamos/random/setSeeds %s %s\n&quot;, s1, s2)
+        } else {
+            print $0
+        }
+    }&#39; main.in &gt; &quot;$main_files/main_$SUFFIX.inn&quot;
+
+    # Run simulation and log output
+    gamos &quot;$main_files/main_$SUFFIX.inn&quot; 2&gt;&amp;1 | tee &quot;$logs/log_main_$SUFFIX.log&quot; &amp;
+
+    # Control number of concurrent jobs
+    if [[ $(jobs -r -p | wc -l) -ge $MAX_JOBS ]]; then
+        wait -n
+    fi
+done
+
+wait
+
+echo &quot;[INFO] All simulations have completed.&quot;
+echo &quot;[INFO] Output directory: $OUTPUT_PATH&quot;
+
+# ----------- Prompt for cleanup ----------- #
+echo &quot;&quot;
+read -p &quot;Do you want to delete the temporary files ($inputs_tmp and $main_files)? [y/N]: &quot; answer
+
+if [[ &quot;$answer&quot; == &quot;y&quot; || &quot;$answer&quot; == &quot;Y&quot; ]]; then
+    echo &quot;[INFO] Deleting temporary files...&quot;
+    rm -rf &quot;$inputs_tmp&quot; &quot;$main_files&quot;
+    echo &quot;[INFO] Temporary files deleted.&quot;
+else
+    echo &quot;[INFO] Temporary files kept.&quot;
+fi
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="inputs_rst/scoring.html" class="btn btn-neutral float-left" title="Scoring" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="output.html" class="btn btn-neutral float-right" title="Output" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Francisco Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

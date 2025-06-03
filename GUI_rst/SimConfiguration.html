@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation Setup &mdash; MIMAC 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Image Formation" href="energy_dcm.html" />
+    <link rel="prev" title="Phantom Generation" href="phantom_generation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to.html">How to run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../victre/index.html">Phantom Generation using VICTRE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inputs_rst/index.html">Inputs Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bash_script.html">Bash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins_rst/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GUI Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="phantom_generation.html">Phantom Generation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Simulation Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-by-step-instructions">Step-by-Step Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration-files-management">1. Configuration files Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary-of-the-simulation">2. Summary of the simulation.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main-frame">3. Main Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#geometry-frame">4. Geometry Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#source-frame">5. Source Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detector-frame">6. Detector Frame</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="energy_dcm.html">Image Formation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MIMAC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GUI Documentation</a></li>
+      <li class="breadcrumb-item active">Simulation Setup</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/GUI_rst/SimConfiguration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="simulation-setup">
+<h1>Simulation Setup<a class="headerlink" href="#simulation-setup" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Simulation Setup GUI is designed to facilitate the configuration of simulation parameters. It provides a user-friendly interface for users to set up their simulations, including defining the geometry, materials, and other parameters required for the simulation.</p>
+</section>
+<section id="step-by-step-instructions">
+<h2>Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Link to this heading"></a></h2>
+<section id="configuration-files-management">
+<h3>1. Configuration files Management<a class="headerlink" href="#configuration-files-management" title="Link to this heading"></a></h3>
+<blockquote>
+<div><blockquote>
+<div><a class="reference internal image-reference" href="../_images/SimGen.png"><img alt="Management Frame" class="align-center" src="../_images/SimGen.png" style="width: 109.0px; height: 183.0px;" />
+</a>
+</div></blockquote>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Apply cfg</strong></dt><dd><ul>
+<li><p>Applies the selected settings to the simulation.</p></li>
+<li><p>Generates all the files necessary for the simulation.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Load Configuration File</strong>:</dt><dd><ul>
+<li><p>Opens a dialog to select a configuration file (<code class="docutils literal notranslate"><span class="pre">.json</span></code>) for the simulation.</p></li>
+<li><p>The selected file is loaded and parameters of the GUI are updated.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Save Configuration File</strong>:</dt><dd><ul>
+<li><p>Opens a dialog to save the current configuration settings to a file.</p></li>
+<li><p>The saved file can be used for future simulations or shared with other users.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="summary-of-the-simulation">
+<h3>2. Summary of the simulation.<a class="headerlink" href="#summary-of-the-simulation" title="Link to this heading"></a></h3>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/SimSummary.png"><img alt="Summary Frame" class="align-center" src="../_images/SimSummary.png" style="width: 142.5px; height: 317.0px;" />
+</a>
+<ul class="simple">
+<li><p>This section provides a summary of the simulation parameters.</p></li>
+<li><p>It includes information about the geometry, materials, and other relevant settings.</p></li>
+<li><p>Users can review this summary to ensure that the simulation is configured correctly.</p></li>
+<li><p>This summary appears in the left panel of the GUI.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="main-frame">
+<h3>3. Main Frame<a class="headerlink" href="#main-frame" title="Link to this heading"></a></h3>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/SimMain.png"><img alt="Main Frame" class="align-center" src="../_images/SimMain.png" style="width: 50%;" />
+</a>
+<ul class="simple">
+<li><p>This frame contains some key parameters of the simulation.</p></li>
+<li><dl class="simple">
+<dt><strong>Simulation Seed</strong>:</dt><dd><ul>
+<li><p>This parameter allows users to set the seed for the random number generator.</p></li>
+<li><p>The seed is used to initialize the random number generator, ensuring reproducibility of the simulation results.</p></li>
+<li><p>Users can enter a specific seed value or leave it blank to use a default value.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Generate WRL</strong>:</dt><dd><ul>
+<li><p>This option allows users to select whether a WRL file should be generated during the simulation.</p></li>
+<li><p>The WRL file contains the geometry information of the simulation, which can be used for visualization purposes.</p></li>
+<li><p>Users can check or uncheck this option based on their requirements.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Number of Events</strong>:</dt><dd><ul>
+<li><p>This parameter allows users to specify the number of events to be simulated.</p></li>
+<li><p>Users can enter a specific number or leave it blank to use a default value.</p></li>
+<li><p>The number of events determines the size of the simulation and can affect the accuracy of the results.</p></li>
+<li><p>The number must be a positive integer and the maximum value is 2.1e9.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="geometry-frame">
+<h3>4. Geometry Frame<a class="headerlink" href="#geometry-frame" title="Link to this heading"></a></h3>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/SimGeom.png"><img alt="Geometry Frame" class="align-center" src="../_images/SimGeom.png" style="width: 50%;" />
+</a>
+<ul class="simple">
+<li><p>This frame allows users to define the geometry of the simulation.</p></li>
+<li><dl class="simple">
+<dt><strong>World Definition</strong>:</dt><dd><ul>
+<li><p>Users can select the .geom file that describes the <strong>world</strong> of the simulation. This world file must be located in the <strong>geom/worlds/</strong> folder.</p></li>
+<li><p>The material of the world can be defined, by default it is set to G4_AIR.</p></li>
+<li><p>The distance (mm) between the X-ray source and the world is defined in the SDD entry.</p></li>
+<li><p>The world size beyond the detector is the gap (mm) between the end of the detector and the limit of the world.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Phantom Setup</strong>:</dt><dd><ul>
+<li><p>This section allows users to define the phantom setup for the simulation.</p></li>
+<li><p>Users can select between voxelized or non-voxelized phantoms.</p></li>
+<li><dl class="simple">
+<dt>If voxelized phantom is selected, users must select the .g4dcm file that describes the <strong>phantom</strong> of the simulation. This file must be located in the <strong>data/g4dcm/</strong> folder.</dt><dd><ul>
+<li><p>The voxelized phantom is positioned leaving a small gap from the detector.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>If non-voxelized phantom is selected, ssers must select the .geom file that describes the <strong>phantom</strong> of the simulation. This phantom file must be located in the <strong>geom/elementsInWorld/</strong> folder.</dt><dd><ul>
+<li><p>The distance (mm) between the X-ray source and the phantom is defined in the SOD entry.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Jaws Setup</strong>:</dt><dd><ul>
+<li><p>This section allows users to define the jaws setup for the simulation.</p></li>
+<li><p>If Pyramidal direction distribution is selected, we recommend to not use jaws because they are not necessary.</p></li>
+<li><p>In case of using jaws, we recommend to activate the Auto-Size flag, which will automatically set the jaws size and position.</p></li>
+<li><p>Users can select the jaws position and size for the simulation.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Physics &amp; Filters</strong>:</dt><dd><ul>
+<li><p>This section allows users to define the physics list and filters for the simulation.</p></li>
+<li><p>Users can select the physics list to be used in the simulation through a combobox with the available options.</p></li>
+<li><dl class="simple">
+<dt>Users can also select the filters to be applied to the simulation. A brief description of each filter is provided in the documentation.</dt><dd><ul>
+<li><p>Filter 1 - Kill all electrons. This filter is used to kill all electrons in the simulation once they are created (recommended).</p></li>
+<li><p>Filter 2 - Kill secondary tracks. This filter is used to kill secondary tracks. A track is considered secondary if it comes from other track, i.e. it comes from an interaction.</p></li>
+<li><p>Filter 3 - Kill scattered photons. This filter is used to kill scattered photons. A photon is considered scattered if it has been scattered through an interaction.</p></li>
+<li><p>Filter 4 - Kill photons at the jaws. This filter is used to kill all photons that reach the jaws. If no jaws are used, this filter must be disabled.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="source-frame">
+<h3>5. Source Frame<a class="headerlink" href="#source-frame" title="Link to this heading"></a></h3>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/SimSource.png"><img alt="Source Frame" class="align-center" src="../_images/SimSource.png" style="width: 50%;" />
+</a>
+<ul class="simple">
+<li><p>This frame allows users to define the source setup for the simulation.</p></li>
+<li><p>Users can select the source particles (gamma or electrons).</p></li>
+<li><p>An initialization energy must be defined, even if a spectrum is used.</p></li>
+<li><p>Users can select if they want to use a spectrum or a fixed energy.</p></li>
+<li><dl class="simple">
+<dt>If a spectrum is selected, users must select the .txt file that describes the spectrum of the simulation. This file must be located in the <strong>spectra/</strong> folder.</dt><dd><ul>
+<li><p>The spectrum file must contain two columns: energy (MeV) and intensity (counts).</p></li>
+<li><p>The energy values must be in keV and the intensity values must be in counts.</p></li>
+<li><p>The energy values must be in ascending order.</p></li>
+<li><p>The intensity values is recommended to be normalized to 1.</p></li>
+<li><p>The energy distribution can be defined as individual bins with the energy and intensity values given by the spectrum file (<strong>histogram</strong>) or as a continuous distribution (<strong>interpolate</strong>).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The position of the source can be defined in the GUI or can be set automatically by using the Auto-Align flag.</dt><dd><ul>
+<li><p>The Auto-Align flag will automatically set the source position to left side of the detector.</p></li>
+<li><p>The source position is defined in mm.</p></li>
+<li><p>The source is always positioned in Z=0.</p></li>
+<li><p>The (x,Y) coordinates of the source can be defined in the GUI, disabling the Auto-Align flag. These coordinates are defined in mm.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The position distribution of the source can be selected through a combobox. The available options are:</dt><dd><ul>
+<li><p><strong>Single Point</strong>: The source is a point source.</p></li>
+<li><p><strong>Gaussian_dis</strong>: The source is a disc with a Gaussian distribution. The radius of the disc is the Focal spot size (mm).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>The direction distribution of the particles generated by the source can be selected through a combobox. The available options are:</dt><dd><ul>
+<li><p><strong>Constant</strong>: The particles follow a constant direction. They going perpendicular to the detector.</p></li>
+<li><p><strong>Pyramid_Isotropic</strong>: The direction of the particles follows a pyramidal distribution, making sure all the primary particles reach the detector. The pyramid size can be defined in the GUI or can be set automatically by using Auto-Size flag. The angles follows an isotropic distribution.</p></li>
+<li><p><strong>Cone</strong>: The direction of the particles follows a conical distribution. The angle of the cone can be defined in the GUI or can be set automatically by using the Auto-Size flag.</p></li>
+<li><p><strong>SemiCone</strong>: The direction of the particles follows a semi-conical distribution. The angle of the cone can be defined in the GUI or can be set automatically by using the Auto-Size flag.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="detector-frame">
+<h3>6. Detector Frame<a class="headerlink" href="#detector-frame" title="Link to this heading"></a></h3>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/SimDet.png"><img alt="Detector Frame" class="align-center" src="../_images/SimDet.png" style="width: 50%;" />
+</a>
+<ul class="simple">
+<li><p>This section allows users to define the detector setup for the simulation.</p></li>
+<li><dl class="simple">
+<dt>Users can select the detector model.</dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>MCD model</strong>: The detector is defined as a box with a specific size, position, and material. This detector model muste be defined in the <strong>geom/elementsInWorld/</strong> folder.</dt><dd><ul>
+<li><p>All interactions are simulated in the detector as any other Geant4 solid.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>VD model</strong>: The detector is defined as a virtual plane with a specific size, position, and material.</dt><dd><ul>
+<li><p>The interactions are simulated applying an efficiency factor defined in <strong>plugins/resources/</strong> folder.</p></li>
+<li><p>The simulation is faster than the MCD model, but results can be less accurate.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Users can set the pixel size (mm) of the detector.</p></li>
+<li><dl class="simple">
+<dt>The number of pixels in the detector can be defined in the GUI or can be set automatically by using the Auto-Size flag.</dt><dd><ul>
+<li><p>The Auto-Size flag will automatically set the number of pixels to cover all the voxelized phantom.</p></li>
+<li><p>The Auto-Size flag <strong>does not</strong> work properly with non-voxelized phantoms.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Anti-Scatter grid</strong></dt><dd><ul>
+<li><p>This section allows users to define the anti-scatter grid setup for the simulation.</p></li>
+<li><p>Users can set the anti-scatter grid ratio, frequency and strip thickness (mm).</p></li>
+<li><p>The modelation of the anti-scatter grid is done following the instructions of Day and Dance <a class="reference internal" href="../references.html"><span class="doc">[3]</span></a>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Signal generation</strong></dt><dd><ul>
+<li><p>This section allows users to define the output of the simulation.</p></li>
+<li><p>Users can select the output type: Energy or Charge (recommended Energy and convert it to charge o gray scale through the image formation GUI module).</p></li>
+<li><p>Users can select the output format: MHD/RAW, DICOM or text.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="phantom_generation.html" class="btn btn-neutral float-left" title="Phantom Generation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="energy_dcm.html" class="btn btn-neutral float-right" title="Image Formation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Francisco Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

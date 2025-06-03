@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Formation &mdash; MIMAC 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="References" href="../references.html" />
+    <link rel="prev" title="Simulation Setup" href="SimConfiguration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to.html">How to run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../victre/index.html">Phantom Generation using VICTRE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inputs_rst/index.html">Inputs Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bash_script.html">Bash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins_rst/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GUI Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="phantom_generation.html">Phantom Generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SimConfiguration.html">Simulation Setup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Image Formation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-by-step-instructions">Step-by-Step Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#loading-data">1. Loading Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-configuration">2. Parameter Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#summary-frame">3. Summary Frame</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MIMAC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GUI Documentation</a></li>
+      <li class="breadcrumb-item active">Image Formation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/GUI_rst/energy_dcm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="image-formation">
+<h1>Image Formation<a class="headerlink" href="#image-formation" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">image_gui</span></code> interface is designed to load, visualize and process the output files generated by GAMOS. It allows users to convert the energy deposited in each pixel into an image format. The GUI provides a user-friendly interface for loading files, applying parameters, and saving the final image.</p>
+<img alt="../_images/GUI_EnDCM_window.png" class="align-center" src="../_images/GUI_EnDCM_window.png" />
+</section>
+<section id="step-by-step-instructions">
+<h2>Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Link to this heading"></a></h2>
+<section id="loading-data">
+<h3>1. Loading Data<a class="headerlink" href="#loading-data" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Load File (Button 1)</strong>:</dt><dd><ul>
+<li><p>Opens a dialog to select a single output file from the simulation (<code class="docutils literal notranslate"><span class="pre">.mhd</span></code> or <code class="docutils literal notranslate"><span class="pre">.out</span></code>).</p></li>
+<li><p>The selected file is loaded and displayed in the GUI.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Load Folder (Button 2)</strong>:</dt><dd><ul>
+<li><p>Opens a dialog to select a folder containing multiple output files.</p></li>
+<li><p>The GUI will sum the energy deposited in all files within the folder and display the result.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="parameter-configuration">
+<h3>2. Parameter Configuration<a class="headerlink" href="#parameter-configuration" title="Link to this heading"></a></h3>
+<p>Use this panel to configure image processing options:</p>
+<ul>
+<li><dl>
+<dt><strong>Output Type</strong>:</dt><dd><ul class="simple">
+<li><p>This option allows you to select the output magnitude. It can be either <strong>Energy</strong> or <strong>Charge</strong>.</p></li>
+<li><p>The default value is <strong>Energy</strong>.</p></li>
+<li><p>If you select <strong>Charge</strong>, the GUI will convert the energy deposited in each pixel into charge using the following formula:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[Q = E / \text{e-h pair energy}\]</div>
+<p>where <span class="math notranslate nohighlight">\(Q\)</span> is the charge, <span class="math notranslate nohighlight">\(E\)</span> is the energy deposited in each pixel, and the e-h pair energy is a constant that can be adjusted in the GUI.
+- The default value for the e-h pair energy is 50.0 eV per pair e-hole, but you can adjust it based on your requirements.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Mean Electronic Noise</strong>:</dt><dd><ul class="simple">
+<li><p>This parameter allows you to add electronic noise to the image. The default value is 5200.0.</p></li>
+<li><p>You can adjust this value to simulate different levels of electronic noise in the image.</p></li>
+<li><p>If you do not want to add noise, set this value to 0.0.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Swank Factor</strong>:</dt><dd><ul class="simple">
+<li><p>This parameter allows you to apply a Swank factor to the image. The default value is 0.99.</p></li>
+<li><p>You can adjust this value to simulate different levels of Swank factor in the image.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Apply Smoothing Kernel</strong>:</dt><dd><ul class="simple">
+<li><p>This parameter allows you to apply a smoothing kernel to the image.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Kernel Size</strong>:</dt><dd><ul class="simple">
+<li><p>This parameter allows you to set the size of the smoothing kernel. The default value is 3.</p></li>
+<li><p>You can adjust this value to change the size of the smoothing kernel applied to the image.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Kernel Sigma</strong>:</dt><dd><ul class="simple">
+<li><p>This parameter allows you to set the sigma value of the smoothing kernel. The default value is 0.46.</p></li>
+<li><p>You can adjust this value to change the sigma value of the smoothing kernel applied to the image.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Normalization Method</strong>:</p>
+<blockquote>
+<div><ul>
+<li><p>This parameter allows you to select the normalization method. The options are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>None</strong>: No normalization is applied.</p></li>
+<li><p><strong>Logarithmic</strong>: The image is normalized using a logarithmic scale.</p></li>
+<li><p><strong>Square Root</strong>: The image is normalized using a square root scale.</p></li>
+<li><p><strong>VICTRE MCGPU SC</strong>: The image is normalized using the VICTRE MCGPU Sensitivity Curve.</p></li>
+<li><p><strong>MCD SC</strong>: The image is normalized using the MCD Sensitivity Curve.</p></li>
+<li><p><strong>VD SC</strong>: The image is normalized using the VD Sensitivity Curve.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><dl class="simple">
+<dt><strong>Apply Changes</strong></dt><dd><ul class="simple">
+<li><p>This button applies the changes made in the parameters window to the image displayed.</p></li>
+<li><p>The image will be updated with the new parameters applied.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Save Image</strong></dt><dd><ul class="simple">
+<li><p>This button allows you to save the processed image in either DICOM or MHD/RAW format.</p></li>
+<li><p>The default format is MHD/RAW, but you can change it to DICOM if needed.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="summary-frame">
+<h3>3. Summary Frame<a class="headerlink" href="#summary-frame" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The GUI provides a summary of the parameters applied to the image.</p></li>
+<li><p>This summary can be found in the right panel of the GUI.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="SimConfiguration.html" class="btn btn-neutral float-left" title="Simulation Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../references.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Francisco Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,855 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GmGetImage &mdash; MIMAC 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SemiCone" href="semicone.html" />
+    <link rel="prev" title="Plugins" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to.html">How to run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../victre/index.html">Phantom Generation using VICTRE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inputs_rst/index.html">Inputs Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bash_script.html">Bash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../output.html">Output</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Plugins</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">GmGetImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="semicone.html">SemiCone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyr_iso.html">Pyr_Isotropic_dist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI_rst/index.html">GUI Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MIMAC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Plugins</a></li>
+      <li class="breadcrumb-item active">GmGetImage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/plugins_rst/getenergy.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gmgetimage">
+<h1>GmGetImage<a class="headerlink" href="#gmgetimage" title="Link to this heading"></a></h1>
+<p>This plugin is used to store the energy (or charge) deposited for each photon into the pixel where it interacts.</p>
+<p>For now, there are two different detector models:
+1. a-Se detector with a virtual detector (VD) and anti-scatter grid.
+2. a-Se detector with a virtual detector (VD) and no anti-scatter grid.
+3. Realistic detector (MCD) and no anti-scatter grid.
+4. Realistic detector (MCD) and anti-scatter grid.</p>
+<p>MCD detector must be defined as a geometry in the simulation. The geometry must be defined in the macro file. The geometry is defined as a box with a certain size and a certain number of pixels. The number of pixels is defined by the user. The size of the box is defined by the user. The size of the box is defined by the user. The size of the box is defined by the user. The size of the box is defined by the user.</p>
+<p>The detector is located at zStop (the distance from the source plane to the detector). The size of the box is defined by the user through the following commands:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="n">setParam</span> <span class="n">GetImage</span><span class="p">:</span><span class="n">NumPixelsX</span> <span class="n">NumPixelsX</span>
+<span class="linenos">2</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="n">setParam</span> <span class="n">GetImage</span><span class="p">:</span><span class="n">NumPixelsY</span> <span class="n">NumPixelsY</span>
+<span class="linenos">3</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="n">setParam</span> <span class="n">GetImage</span><span class="p">:</span><span class="n">PixelSizeX</span> <span class="n">PixelSizeX</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span>
+<span class="linenos">4</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="n">setParam</span> <span class="n">GetImage</span><span class="p">:</span><span class="n">PixelSizeY</span> <span class="n">PixelSizeY</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span>
+<span class="linenos">5</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="n">setParam</span> <span class="n">GetImage</span><span class="p">:</span><span class="n">zStop</span> <span class="n">zStop</span><span class="p">(</span><span class="n">mm</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Evaluate at each step of the particle if has reached the “virtual” detector (VD) or the real detector (MCD).</p></li>
+<li><p>When the particle go through the detector we apply a function that simulates an anti-scatter grid.</p></li>
+<li><p>The anti-scatter grid is defined as <a class="reference internal" href="../references.html"><span class="doc">[3]</span></a>.</p></li>
+<li><p>If the photon is absorbed in the anti-scatter grid, it is not counted.</p></li>
+<li><p>If the photon is absorbed in the detector and the VD model is selected, the absorption is evaluated using the efficiency curve defined for the virtual detector. The efficiency curve determines the probability of photon absorption based on its energy.</p></li>
+<li><p>If the output selected is <strong>Energy</strong>, a image with the energy in eV is created.</p></li>
+<li><p>If the output selected is <strong>Charge</strong>, a image with the charge in pairs e-hole is created.</p></li>
+<li><p>Finally, a file is written with the total deposited energy on the run in each pixel.</p></li>
+<li><p>By default, the format of the file is MHD/RAW, but it can be changed using the command:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="n">setParam</span> <span class="n">GetImage</span><span class="p">:</span><span class="n">OutputFormat</span> <span class="n">DCM</span>
+<span class="linenos">2</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="n">setParam</span> <span class="n">GetImage</span><span class="p">:</span><span class="n">OutputFormat</span> <span class="n">Text</span>
+<span class="linenos">3</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="n">setParam</span> <span class="n">GetImage</span><span class="p">:</span><span class="n">OutputFormat</span> <span class="n">MHD</span><span class="o">/</span><span class="n">RAW</span>
+</pre></div>
+</div>
+<p>Source Code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#include &quot;G4Run.hh&quot;
+#include &quot;G4RunManager.hh&quot;
+#include &quot;G4Event.hh&quot;
+#include &quot;G4EventManager.hh&quot;
+#include &quot;G4UnitsTable.hh&quot;
+#include &quot;G4ThreeVector.hh&quot;
+#include &quot;G4EmCalculator.hh&quot;
+#include &quot;G4Gamma.hh&quot;
+#include &quot;G4NistManager.hh&quot;
+#include &quot;G4SystemOfUnits.hh&quot;
+
+#include &quot;Randomize.hh&quot;
+#include &lt;fstream&gt;
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+#include &lt;filesystem&gt;
+
+
+#include &quot;dcmtk/dcmdata/dctk.h&quot;
+#include &quot;dcmtk/dcmimgle/dcmimage.h&quot;
+#include &quot;dcmtk/dcmdata/dcfilefo.h&quot;
+#include &quot;dcmtk/dcmdata/dcdeftag.h&quot;
+#include &quot;GmGetImage.hh&quot;
+#include &quot;GamosCore/GamosBase/Base/include/GmParameterMgr.hh&quot;
+#include &quot;G4GeometryTolerance.hh&quot;
+
+constexpr double MIN_U2 = 1.0e-8;
+constexpr double PI = CLHEP::pi;
+
+
+
+//---------------------------------------------------------------------
+GmGetImage::GmGetImage() : GmUserRunAction(), GmUserEventAction(), GmUserSteppingAction()
+{
+}
+
+
+//----------------------------------------------------------------------
+void GmGetImage::BeginOfRunAction(const G4Run* run) {
+
+    GetParams();
+   
+    InitializeVector(gridInterspaceMu,&quot;InterStripMu.txt&quot;);
+    InitializeVector(gridStripMu,&quot;StripMu.txt&quot;);
+
+    totalEvents = run-&gt;GetNumberOfEventToBeProcessed();
+
+    if (detectorModel == &quot;VD&quot;) {
+        DetectorMaterial = G4NistManager::Instance()-&gt;FindOrBuildMaterial(detectorMaterial);
+        if (!DetectorMaterial) {
+            DetectorMaterial = LoadCustomMaterial(detectorMaterial, &quot;geom/MyMaterials.txt&quot;);
+            //G4cout &lt;&lt; detectorMaterial &lt;&lt; &quot; Material Added&quot; &lt;&lt; G4endl;
+        }
+        //InitializeVector(efficiencyMap,&quot;efficiency.txt&quot;);
+    }
+    
+    G4cout &lt;&lt; &quot;=======================&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;=  Simulation Param.  =&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;=======================&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Output selection: &quot; &lt;&lt; outputSel &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Output Format: &quot; &lt;&lt; outputFormat &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Output Folder: &quot; &lt;&lt; outputFolder &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Output Filename: &quot; &lt;&lt; outputFilename &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Total Events: &quot; &lt;&lt; totalEvents &lt;&lt; G4endl;
+
+    G4cout &lt;&lt; &quot;=======================&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;= &quot; &lt;&lt; detectorModel &lt;&lt; &quot; Detector ON = &quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;=======================&quot; &lt;&lt; G4endl;
+   
+    G4cout &lt;&lt; &quot;   Z Stop Position: &quot; &lt;&lt; zstop &lt;&lt; &quot; mm &quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Number of Pixels on X: &quot; &lt;&lt; numPixelsX &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Number of Pixels on Y: &quot; &lt;&lt; numPixelsY &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Pixel Size on X: &quot; &lt;&lt; pixelSizeX &lt;&lt; &quot; mm&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Pixel Size on Y: &quot; &lt;&lt; pixelSizeY &lt;&lt; &quot; mm&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Detector Thickness: &quot; &lt;&lt; detectorThickness &lt;&lt; &quot; mm&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Detector Material: &quot; &lt;&lt; detectorMaterial &lt;&lt; G4endl;
+   
+    G4cout &lt;&lt; &quot;==========================&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot; &quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;==========================&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;=====  Grid Params  ======&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;==========================&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Use Scatter-Grid: &quot;             &lt;&lt; apply_grid &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Grid Ratio: &quot; &lt;&lt; gridRatio &lt;&lt; G4endl; // What Grid Ratio is?
+    G4cout &lt;&lt; &quot;   Source-Detector Distance (SDD): &quot; &lt;&lt; sdd &lt;&lt; &quot;mm&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Grid Frequency: &quot; &lt;&lt; gridFreq &lt;&lt; &quot; per unit&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Grid Strip Thickness: &quot; &lt;&lt; gridStripThickness &lt;&lt; &quot;mm&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;   Gap grid displacement: &quot; &lt;&lt; gap &lt;&lt; &quot;mm&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;==========================&quot; &lt;&lt; G4endl;
+
+    /*/
+    const G4MaterialTable* matTable = G4Material::GetMaterialTable();
+    for (const auto&amp; material : *matTable) {
+        G4cout &lt;&lt; &quot;Material: &quot; &lt;&lt; material-&gt;GetName() &lt;&lt; G4endl;    
+    }
+    /*/
+}
+
+//----------------------------------------------------------------------
+void GmGetImage::GetParams(){
+
+    GmParameterMgr* paramMgr = GmParameterMgr::GetInstance();
+
+    // Get detector parameters from GetImage.in file
+    detectorModel = paramMgr-&gt;GetStringValue(&quot;GetImage:DetectorModel&quot;, &quot;VD&quot;);
+    outputSel = paramMgr-&gt;GetStringValue(&quot;GetImage:OutputType&quot;, &quot;Energy&quot;);   
+    numPixelsX = paramMgr-&gt;GetNumericValue(&quot;GetImage:NumPixelsX&quot;, 1000);
+    numPixelsY = paramMgr-&gt;GetNumericValue(&quot;GetImage:NumPixelsY&quot;, 1000);
+    pixelSizeX = paramMgr-&gt;GetNumericValue(&quot;GetImage:PixelSizeX&quot;, 0.1);
+    pixelSizeY = paramMgr-&gt;GetNumericValue(&quot;GetImage:PixelSizeY&quot;, 0.1);
+    detectorThickness = paramMgr-&gt;GetNumericValue(&quot;GetImage:DetectorThickness&quot;, 0.2);
+    detectorMaterial = paramMgr-&gt;GetStringValue(&quot;GetImage:DetectorMaterial&quot;, &quot;aSe&quot;);
+    zstop = paramMgr-&gt;GetNumericValue(&quot;GetImage:zStop&quot;,650);
+
+    // Adjust energy matrix size from deterctor size
+    output.resize(numPixelsY, std::vector&lt;double&gt;(numPixelsX, 0.0));
+
+    // Get grid parameters from WriteEnergy.in file
+    apply_grid = paramMgr-&gt;GetStringValue(&quot;Grid:UseGrid&quot;, &quot;Yes&quot;);
+    gridRatio = paramMgr-&gt;GetNumericValue(&quot;Grid:Ratio&quot;, 1.0);
+    sdd = paramMgr-&gt;GetNumericValue(&quot;Grid:SourceDetectorDistance&quot;, 700.0); // Is it really necessary¿?
+    gridFreq = paramMgr-&gt;GetNumericValue(&quot;Grid:Frequency&quot;, 1.0);
+    gridStripThickness = paramMgr-&gt;GetNumericValue(&quot;Grid:StripThickness&quot;, 0.1);
+    gap = paramMgr-&gt; GetNumericValue(&quot;Grid:Gap&quot;, 0.0);
+
+    // Charge-Energy parameters
+    pairCreationEnergyEV = paramMgr-&gt;GetNumericValue(&quot;GetImage:PairCreationEnergy&quot;, 50.0); // eV
+
+    // Sensibility Curve Parameters Initialization
+    SensibilityOffset = 0.0;
+    SensibilityFactor = 1.0;
+
+    // Output File Parameters
+    outputFolder = paramMgr-&gt;GetStringValue(&quot;GetImage:ResultsFolder&quot;, &quot;output/&quot;);	
+	outputFilename = paramMgr-&gt;GetStringValue(&quot;GetImage:OutputFilename&quot;, &quot;energy&quot;);
+    outputFormat = paramMgr-&gt;GetStringValue(&quot;GetImage:OutputFormat&quot;, &quot;MHD/RAW&quot;);
+
+    // Exceptions
+
+    if( (detectorModel != &quot;VD&quot; &amp;&amp; detectorModel != &quot;MCD&quot;)) {
+    G4Exception(&quot;GetImage:DetectorModel&quot;,
+		&quot;Wrong argument&quot;,
+		FatalErrorInArgument,
+		&quot;Detector Model is not well defined, please use VD or MCD&quot;);
+    }
+
+    if( (outputSel != &quot;Energy&quot; &amp;&amp; outputSel != &quot;Charge&quot; &amp;&amp; outputSel != &quot;Gray&quot;)) {
+    G4Exception(&quot;GetImage:OutputSelection&quot;,
+		&quot;Wrong argument&quot;,
+		FatalErrorInArgument,
+		&quot;Output Selection is not well defined, please use Energy, Charge&quot;);
+    }
+
+    if( (outputFormat != &quot;MHD/RAW&quot; &amp;&amp; outputFormat != &quot;Text&quot; &amp;&amp; outputFormat != &quot;DCM&quot;)) {
+    G4Exception(&quot;GetImage:OutputFormat&quot;,
+		&quot;Wrong argument&quot;,
+		FatalErrorInArgument,
+		&quot;Output Format is not well defined, please use MHD/RAW, DCM or Text&quot;);
+    }
+
+    
+}
+
+//----------------------------------------------------------------------
+void GmGetImage::UserSteppingAction(const G4Step* aStep)
+{
+
+  //G4cout &lt;&lt; &quot;Step &quot; &lt;&lt; G4endl;
+  // Get Positions at the PreStep and PostStep Points
+  preR= aStep-&gt;GetPreStepPoint()-&gt;GetPosition();
+  postR= aStep-&gt;GetPostStepPoint()-&gt;GetPosition();
+  
+  //G4cout &lt;&lt; &quot;pre Z: &quot; &lt;&lt; preR.z() &lt;&lt; G4endl;  
+  
+  // If PreStep position is larger than zStop, the particle has crossed the detector plane, the Track is killed. Valid for both detector&#39;s model.
+  if ( preR.z() &gt; zstop) {
+      //G4cout &lt;&lt; &quot;pre Z: &quot; &lt;&lt; preR.z() &lt;&lt; G4endl;
+  	  aStep-&gt;GetTrack()-&gt;SetTrackStatus(fStopAndKill);
+  }
+
+  
+  // If PreStep position is lower than zStop and PostStep position is larger, the particle is crossing the detector plane.
+  if ( (preR.z()-zstop) * (postR.z()-zstop) &lt; 0. || fabs(postR.z()-zstop) &lt; G4GeometryTolerance::GetInstance()-&gt;GetSurfaceTolerance() ) {
+    //G4cout &lt;&lt; &quot;Step Accepted: &quot; &lt;&lt; preR.z() &lt;&lt; G4endl;
+    
+    //Apply antiscatter-grid
+    if (detectorModel == &quot;VD&quot;){
+      if (apply_grid == &quot;Yes&quot;){
+          if (AcceptStep(aStep)){FillMatrix_Virtual(aStep);}
+      }else{FillMatrix_Virtual(aStep);}  
+    }
+    if (detectorModel == &quot;MCD&quot;){
+      if (apply_grid == &quot;Yes&quot;){
+          if (!AcceptStep(aStep)){aStep-&gt;GetTrack()-&gt;SetTrackStatus(fStopAndKill);}
+      }  
+    }
+  }
+}
+
+//----------------------------------------------------------------------
+void GmGetImage::EndOfEventAction( const G4Event* ) 
+{
+  // Just for MCD detector Model
+  if (detectorModel==&quot;MCD&quot;){  
+      std::vector&lt;GmRecHit*&gt; rhits = GmHitsEventMgr::GetInstance()-&gt;GetAllRecHits();
+
+      for (auto&amp; hit : rhits) {
+          FillMatrix_MCD(hit);
+      }
+  }
+}
+
+//----------------------------------------------------------------------
+void GmGetImage::EndOfRunAction(const G4Run*) {
+    // Valid for both detector&#39;s Models
+    //WriteEnergyMatrixToFile(filename);
+    if ( outputFormat == &quot;MHD/RAW&quot;){WriteMHD(outputFilename);}
+    if ( outputFormat == &quot;Text&quot;){WriteText(outputFilename);}
+    if ( outputFormat == &quot;DCM&quot;){WriteDCM(outputFilename);}
+}
+
+
+
+//----------------------------------------------------------------------
+void GmGetImage::InitializeVector(std::vector&lt;std::pair&lt;double, double&gt;&gt;&amp; vec, const std::string&amp; file_name) {
+    
+    // Get the path to the directory with the files
+    std::string directory_path_str = &quot;plug-ins/resources/&quot;;
+    std::filesystem::path full_path = std::filesystem::current_path() / directory_path_str / file_name;
+
+    // Read the file and store the values in the map
+
+    std::ifstream infile(full_path);
+    if (!infile.is_open()) {
+        G4cerr &lt;&lt; &quot;Couldn&#39;t read file: &quot; &lt;&lt; full_path &lt;&lt; G4endl;
+        return;
+    }
+
+    double Energy, value;
+    vec.clear();
+
+   
+    while((infile &gt;&gt; Energy &gt;&gt; value)) {
+        vec.emplace_back(Energy, value);
+        continue;
+    }
+    
+    std::sort(vec.begin(), vec.end());
+    G4cout &lt;&lt; &quot;=======================&quot; &lt;&lt; G4endl;
+    G4cout &lt;&lt; file_name &lt;&lt; &quot; took from: &quot; &lt;&lt; full_path &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;=======================&quot; &lt;&lt; G4endl; 
+}
+
+double GmGetImage::GetInterpolatedValue(const std::vector&lt;std::pair&lt;double, double&gt;&gt;&amp; vec, double stepEnergy ){
+
+     // Check if the map is empty to avoid execution errors.
+    if (vec.empty()) {return stepEnergy;}
+
+    // Find first element larger than stepEnergy.
+    auto it = std::lower_bound(vec.begin(), vec.end(), stepEnergy, [](const std::pair&lt;double, double&gt;&amp; a, double value) {return a.first &lt; value;});
+    
+    // If it is the beginning, the first value is used.
+    if (it == vec.begin()) {return stepEnergy * it-&gt;second;}
+    
+    // If it is the end, the last value is used.
+    if (it == vec.end()) {return stepEnergy * std::prev(it)-&gt;second;}
+    
+
+    // Now, it points to the first element whose key is higher than stepEnergy.
+    // Check if the previous element is closer to stepEnergy.
+    auto prev_it = std::prev(it);
+
+    double x1 = prev_it-&gt;first, y1 = prev_it-&gt;second;
+    double x2 = it-&gt;first, y2 = it-&gt;second;
+    double interpolated = y1 + (y2 - y1)*(stepEnergy - x1) / (x2 - x1);
+
+    return interpolated;
+}
+
+//----------------------------------------------------------------------
+G4bool GmGetImage::AcceptStep(const G4Step* aStep) {
+
+    G4ThreeVector position = aStep-&gt;GetPostStepPoint()-&gt;GetPosition(); // Get the position of the Step
+    G4ThreeVector direction = aStep-&gt;GetPostStepPoint()-&gt;GetMomentumDirection(); // Get the momentum (direction) of the Step
+
+    // Compute transmission probability
+    G4double transmissionProbability = CalculateGridTransmissionProbability(position, direction, aStep);
+
+    // Decide if accept or reject the Step based on the transmission probability
+	if (G4UniformRand() &lt; 1 - transmissionProbability) return false; // Reject Step
+    return true;
+}
+
+//----------------------------------------------------------------------
+G4float GmGetImage::CalculateGridTransmissionProbability(const G4ThreeVector&amp; position, const G4ThreeVector&amp; direction, const G4Step* aStep) {
+
+    //const double PI = 3.14159265358979323846;
+    // * gridRatio is the ratio between the height of the strips and the distance between the strips
+    // * gridFreq is the inverse of the Width of a grid unit cell
+    // * position is in mm
+    // * prefix 2 means on the rectangular system of reference (d2, D2, u2)
+    
+    // This function computes the Transmission Probability based on the work of Day and Dance [Phys Med Biol 28, p. 1429-1433 (1983)]
+    // The origin is at the center on the detector. 
+    // The x-ray source is shifted, so it is mandatory to correct the x position on the calculus of grid_angle.
+    
+
+    G4double grid_angle, u, w, gridStripMu_E, gridInterspaceMu_E;
+
+    //Look u coeficients
+    double PreEnergy = aStep-&gt;GetPreStepPoint()-&gt;GetKineticEnergy() *1000; // The energy at PreStep point in keV
+
+    gridStripMu_E = GetInterpolatedValue(gridStripMu,PreEnergy)/ 10; // Change to mm⁻1
+    gridInterspaceMu_E = GetInterpolatedValue(gridInterspaceMu,PreEnergy)/ 10; // Change to mm⁻1
+
+    //G4cout &lt;&lt; &quot;energy: &quot; &lt;&lt; aStep-&gt;GetPreStepPoint()-&gt;GetKineticEnergy()  &lt;&lt; &quot;Mu_Pb: &quot; &lt;&lt; gridStripMu_aux &lt;&lt; G4endl;
+
+    
+    grid_angle = (0.5 * PI) - atan2(position.x()-gap,sdd); // Angle in the XZ oblique coordinate system. If grid_angle = pi/2 the grid is not oblique.
+    //grid_angle = PI / 2;
+    // director cosines
+    u = direction.x(); // The grid is periodic along X-axis
+    w = direction.z(); // The particles travel along Z-axis
+ 
+    // based on Day&amp;Dance1983
+    
+    G4float C = 1.0f / gridFreq; // Width of a grid &quot;unit cell&quot; 
+    G4float d2 = gridStripThickness / std::sin(grid_angle); // thickness of the strip region (mm) 
+    G4float D2 = C - d2; // thickness of the interspace region (mm)
+    G4float h = std::fabs(gridRatio) * D2; // Height of the grid (mm)
+
+	// Transformation between coordinates in oblique and rectangular coodinate systems
+    G4double u2 = std::fabs(u - w / std::tan(grid_angle)); // Eq 1 of Day&amp;Dance1983
+    if (u2 &lt; 1.0e-9) {
+        u2 = 1.0e-8;
+    } // To avoid NaN
+
+    G4double P = (h / w) * u2; // Absolute value of the oblique projection of the photon path (eq. 4 Day&amp;Dance1983)
+    G4double n = std::floor(P * gridFreq); // Number of complete &quot;unit cells&quot; penetrated by the photon path (eq. 7 Day&amp;Dance1983)
+    G4float q = P - n * C; // The rest ¿?
+    G4double alpha = u2 / (gridStripMu_E - gridInterspaceMu_E); // (eq. 9 Day&amp;Dance1983)
+    G4double inv_alpha = 1.0 / alpha;
+
+    G4float A = std::exp(-gridInterspaceMu_E * h / w - d2 * n * inv_alpha); // Transmission is T = A*exp(-q/alpha)
+    G4float H = 0.0f;
+
+    if (q &gt;= D2) {
+        H = 1.0f; // Step function H(q-D2)
+    }
+
+    G4float B = (std::fabs(q - D2) + 2.0f * alpha) * std::exp((H * (D2 - q)) * inv_alpha) + (std::fabs(d2 - q) - 2.0f * alpha) * std::exp((-0.5f * (d2 + q - std::fabs(d2 - q))) * inv_alpha); // (eq. 12 Day&amp;Dance1983) 
+    
+    return (A * B * gridFreq); // Day&amp;Dance1983
+
+    //return 0.2;
+}
+
+//----------------------------------------------------------------------
+void GmGetImage::FillMatrix_Virtual(const G4Step* aStep) {
+
+    //G4cout &lt;&lt; &quot;Filling VD Matrix&quot; &lt;&lt; G4endl;
+    // Detector Size
+    double detectorSizeX = numPixelsX*pixelSizeX;  
+    double detectorSizeY = numPixelsY*pixelSizeY; 
+
+    // Interpolation
+    double x = preR.x()+(postR.x()-preR.x())*(zstop-preR.z())/(postR.z()-preR.z());
+    double y = preR.y()+(postR.y()-preR.y())*(zstop-preR.z())/(postR.z()-preR.z()); 
+
+    // Obtain the coordinates of the pixel
+    double X_moved = x + 0.5 * (detectorSizeX - pixelSizeX); 
+    int XCoord = static_cast&lt;int&gt;(X_moved / pixelSizeX); 
+
+    double Y_moved = y + 0.5 * (detectorSizeY - pixelSizeY);
+    int YCoord = static_cast&lt;int&gt;(Y_moved / pixelSizeY); // Obtain the Y coordinate of the pixel
+
+    if (XCoord &lt; 0 || XCoord &gt;= numPixelsX || YCoord &lt; 0 || YCoord &gt;= numPixelsY) return;
+
+    // The energy at PreStep point in keV
+    G4double PreEnergy = aStep-&gt;GetPreStepPoint()-&gt;GetKineticEnergy(); 
+
+    // Efficiency Factor
+    static G4EmCalculator emCal;
+    //G4cout &lt;&lt; DetectorMaterial &lt;&lt; G4endl;
+    G4double lambda_phot = emCal.ComputeMeanFreePath(PreEnergy, G4Gamma::Gamma(), &quot;phot&quot;, DetectorMaterial);
+    G4double lambda_compt = emCal.ComputeMeanFreePath(PreEnergy, G4Gamma::Gamma(), &quot;compt&quot;, DetectorMaterial);
+    G4double lambda_conv = emCal.ComputeMeanFreePath(PreEnergy, G4Gamma::Gamma(), &quot;conv&quot;, DetectorMaterial);
+    G4double lambda_rayl = emCal.ComputeMeanFreePath(PreEnergy, G4Gamma::Gamma(), &quot;Rayl&quot;, DetectorMaterial);
+    G4double lambda_tot = 1/(1/lambda_phot + 1/lambda_compt + 1/lambda_conv+ 1/lambda_rayl);
+
+    /*/
+    G4cout &lt;&lt; &quot;MFP Phot (cm): &quot; &lt;&lt; lambda_phot/cm &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;MFP Compt (cm): &quot; &lt;&lt; lambda_compt/cm &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;MFP Conv (cm): &quot; &lt;&lt; lambda_conv/cm &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;MFP Rayl (cm): &quot; &lt;&lt; lambda_rayl/cm &lt;&lt; G4endl;
+    G4cout &lt;&lt; &quot;MFP Total (cm): &quot; &lt;&lt; lambda_tot/cm &lt;&lt; G4endl;
+    /*/
+
+    G4double efficiencyFactor = lambda_tot/lambda_phot*(1 - std::exp(-detectorThickness/lambda_tot));
+    //G4cout &lt;&lt; &quot;Efficiency factor for &quot; &lt;&lt; PreEnergy &lt;&lt; &quot; MeV and &quot; &lt;&lt; detectorThickness/mm &lt;&lt; &quot; mm: &quot; &lt;&lt; efficiencyFactor &lt;&lt; G4endl; 
+    //double efficiencyFactor = GetInterpolatedValue(efficiencyMap,PreEnergy); 
+
+    if (G4UniformRand() &gt; efficiencyFactor) return;
+
+    // Energy deposited in eV
+    double EnergyDeposited = PreEnergy / eV;
+
+    
+    if(outputSel == &quot;Energy&quot;){output[YCoord][XCoord] += EnergyDeposited;}
+    else if(outputSel == &quot;Charge&quot;){output[YCoord][XCoord] += EnergyToCharge(EnergyDeposited);}
+    else if(outputSel == &quot;Gray&quot;){
+        output[YCoord][XCoord] += EnergyToCharge(EnergyDeposited);
+        SensibilityOffset = 49.07;
+        SensibilityFactor = 4.2e-04;
+        }
+    }       
+
+//----------------------------------------------------------------------
+void GmGetImage::FillMatrix_MCD(GmRecHit* hit) {
+    double detectorSizeX = numPixelsX*pixelSizeX; // Define el tamaño del detector en X
+    double detectorSizeY = numPixelsY*pixelSizeY; // Define el tamaño del detector en Y
+
+    double X_moved = hit-&gt;GetPosition().x() + 0.5 * (detectorSizeX - pixelSizeX);
+    int XCoord = static_cast&lt;int&gt;(X_moved / pixelSizeX);
+
+    double Y_moved = hit-&gt;GetPosition().y() + 0.5 * (detectorSizeY - pixelSizeY);
+    int YCoord = static_cast&lt;int&gt;(Y_moved / pixelSizeY);
+
+    if (XCoord &lt; 0 || XCoord &gt;= numPixelsX) return;
+    if (YCoord &lt; 0 || YCoord &gt;= numPixelsY) return;
+
+    double hitEnergy = hit-&gt;GetEnergy() * 1000000;
+    if(outputSel == &quot;Energy&quot;){output[YCoord][XCoord] += hitEnergy;}
+    else if(outputSel == &quot;Charge&quot;){output[YCoord][XCoord] += EnergyToCharge(hitEnergy);}
+    else if(outputSel == &quot;Gray&quot;){
+        output[YCoord][XCoord] += EnergyToCharge(hitEnergy);
+        SensibilityOffset = 48.62;
+        SensibilityFactor = 5.9e-4;
+        }
+}
+
+//----------------------------------------------------------------------
+void GmGetImage::WriteText(const std::string&amp; name) {
+    std::ofstream file(outputFolder+name+&quot;.out&quot;);
+    if (!file.is_open()) {
+        G4cerr &lt;&lt; &quot;The file: &quot; &lt;&lt; name &lt;&lt; &quot; couldn&#39;t be found/opened.&quot; &lt;&lt; G4endl;
+        return;
+    }
+
+    for (int y = 0; y &lt; numPixelsY; ++y) {
+        for (int x = 0; x &lt; numPixelsX; ++x) {
+            file &lt;&lt; SensibilityOffset + SensibilityFactor*output[y][x];
+            if (x &lt; numPixelsX - 1) {
+                file &lt;&lt; &quot; &quot;; // Split the output values with a space
+            }
+        }
+        file &lt;&lt; &quot;\n&quot;; // New line at the end of each row of the matrix
+    }
+
+    file.close();
+    G4cout &lt;&lt; &quot;Text File written on: &quot; &lt;&lt; name &lt;&lt; G4endl;
+}
+
+//----------------------------------------------------------------------
+void GmGetImage::WriteMHD(const std::string&amp; name) {
+    int rows = numPixelsY;
+    int cols = numPixelsX;
+
+    std::string rawFilename = name +&quot;.raw&quot;;
+    std::string mhdFilename = name +&quot;.mhd&quot;;
+
+    std::ofstream rawFile(outputFolder+rawFilename, std::ios::binary);
+    if (!rawFile) {
+        G4cerr &lt;&lt; &quot;Error: File &quot; &lt;&lt; rawFilename &lt;&lt; &quot;can&#39;t be opened&quot; &lt;&lt; G4endl;
+        return;}
+
+    for (int y = 0; y &lt; numPixelsY; ++y) {
+        std::vector&lt;float&gt; row(numPixelsX);
+        for (int x = 0; x &lt; numPixelsX; ++x) {
+            row[x] = SensibilityOffset + SensibilityFactor * output[y][x];
+            
+            }
+        rawFile.write(reinterpret_cast&lt;const char*&gt;(row.data()),numPixelsX * sizeof(float));
+        }
+    rawFile.close();
+
+    std::ofstream mhdFile(outputFolder+mhdFilename);
+    if (!mhdFile){
+        G4cerr &lt;&lt; &quot;Error: File &quot; &lt;&lt; mhdFilename &lt;&lt; &quot;can&#39;t be opened&quot; &lt;&lt; G4endl;
+        return;
+    }
+    
+    mhdFile &lt;&lt; &quot;ObjectType = Image\n&quot;;
+    mhdFile &lt;&lt; &quot;BinaryData = True\n&quot;;
+    mhdFile &lt;&lt; &quot;BinaryDataByteOrderMSB = False\n&quot;;
+    mhdFile &lt;&lt; &quot;CompressedData = False\n&quot;;
+    mhdFile &lt;&lt; &quot;NDims = 2\n&quot;;
+    mhdFile &lt;&lt; &quot;DimSize = &quot; &lt;&lt; cols &lt;&lt; &quot; &quot; &lt;&lt; rows &lt;&lt; &quot;\n&quot;;
+    mhdFile &lt;&lt; &quot;ElementSpacing = &quot; &lt;&lt; pixelSizeX &lt;&lt; &quot; &quot; &lt;&lt; pixelSizeY &lt;&lt; &quot;\n&quot;;
+    mhdFile &lt;&lt; &quot;ElementType = MET_FLOAT\n&quot;;
+    mhdFile &lt;&lt; &quot;ElementDataFile = &quot; &lt;&lt; rawFilename &lt;&lt; &quot;\n&quot;;
+    mhdFile.close();
+    
+}
+
+//----------------------------------------------------------------------
+void GmGetImage::WriteDCM(const std::string&amp; name) {
+    int rows = numPixelsY;
+    int cols = numPixelsX;
+
+    std::ostringstream oss;
+    oss &lt;&lt; std::fixed &lt;&lt; std::setprecision(6) &lt;&lt; pixelSizeX &lt;&lt; &quot;\\&quot; &lt;&lt; pixelSizeY;
+    std::string ImagerPixelSpacing = oss.str();
+
+    std::ostringstream oss2;
+    oss2 &lt;&lt; std::fixed &lt;&lt; std::setprecision(0) &lt;&lt; totalEvents;
+    std::string totalEventsStr = oss2.str();
+    
+    //double pixelSpacing[] = {pixelSizeX, pixelSizeY}
+
+    DcmFileFormat dcmfileformat;
+    DcmDataset *dataset = dcmfileformat.getDataset();
+
+    dataset-&gt;putAndInsertString(DCM_SOPClassUID, UID_SecondaryCaptureImageStorage);
+    dataset-&gt;putAndInsertString(DCM_PatientName, &quot;Phantom&quot;);
+    dataset-&gt;putAndInsertString(DCM_PatientID, &quot;123&quot;);
+    dataset-&gt;putAndInsertString(DCM_ImagerPixelSpacing, ImagerPixelSpacing.c_str());
+    dataset-&gt;putAndInsertUint16(DCM_Rows, rows);
+    dataset-&gt;putAndInsertUint16(DCM_Columns, cols);
+    dataset-&gt;putAndInsertUint16(DCM_BitsAllocated, 16);
+    dataset-&gt;putAndInsertUint16(DCM_BitsStored, 16);
+    dataset-&gt;putAndInsertUint16(DCM_HighBit, 15);
+    dataset-&gt;putAndInsertUint16(DCM_PixelRepresentation, 0);
+    dataset-&gt;putAndInsertString(DCM_Exposure, totalEventsStr.c_str());
+    
+    std::vector&lt;Uint16&gt; pixelData(rows * cols);
+    for (int y = 0; y &lt; numPixelsY; ++y) {
+        for (int x = 0; x &lt; numPixelsX; ++x) {
+            double value = SensibilityOffset + SensibilityFactor * output[y][x];
+            pixelData[y *cols+x]  = static_cast&lt;Uint16&gt;(std::max(0.0, std::min(65535.0, value)));
+            
+            }
+        }
+
+    dataset-&gt;putAndInsertUint16Array(DCM_PixelData, pixelData.data(), rows * cols);
+
+    OFCondition status = dcmfileformat.saveFile((outputFolder+name+&quot;.dcm&quot;).c_str(), EXS_LittleEndianExplicit);
+    if (status.bad()) {
+        G4cerr &lt;&lt; &quot;Error: DCM file can&#39;t be saved&quot; &lt;&lt; G4endl;
+        return;
+    }
+    
+} 
+
+//----------------------------------------------------------------------
+int GmGetImage::EnergyToCharge(double energyDeposited){
+    //double eVtoCharge = CLHEP::RandGauss::shoot(pairCreationEnergyEV, SwankFactor);
+    double eVtoCharge = pairCreationEnergyEV;
+    return std::floor(energyDeposited /eVtoCharge);
+}
+
+G4Material* GmGetImage::LoadCustomMaterial(const std::string&amp; materialName, const std::string&amp; filePath){
+
+    std::filesystem::path full_path = std::filesystem::current_path() / filePath;
+    std::ifstream file(full_path.string());
+   // G4cout &lt;&lt; full_path &lt;&lt; G4endl;
+    if (!file.is_open()){
+        G4Exception(&quot;LoadCustomMaterial&quot;, &quot;FileNotFound&quot;, FatalException, (&quot;Could not open material file: &quot; + full_path.string()).c_str());
+    }
+    std::string line;
+    bool found = false;
+    std::string name;
+    double density = 0.0;
+    int nComponents = 0;
+    std::vector&lt;std::pair&lt;G4Material*, double&gt;&gt; components;
+    G4NistManager* nist = G4NistManager::Instance();
+
+
+    while (std::getline(file, line)) {
+        std::istringstream iss(line);
+        std::string tag;
+        iss &gt;&gt; tag;
+
+        if (tag == &quot;:MIXT&quot;){
+            iss &gt;&gt; std::quoted(name) &gt;&gt; density &gt;&gt; nComponents;
+            //G4cout &lt;&lt; name &lt;&lt; density &lt;&lt; nComponents &lt;&lt; G4endl;
+            if (name != materialName) {
+                found = false;
+                continue;
+            }
+            found = true;
+            components.clear();
+            for (int i = 0; i &lt; nComponents &amp;&amp; std::getline(file, line); ++i) {
+                std::istringstream elemStream(line);
+                std::string elemName;
+                double fraction;
+                elemStream &gt;&gt; elemName &gt;&gt; fraction;
+                G4Material* elem = nist-&gt;FindOrBuildMaterial(elemName);
+                //G4cout &lt;&lt; &quot;Element: &quot; &lt;&lt; elem-&gt;GetName() &lt;&lt; G4endl;
+                static G4EmCalculator emCal;
+
+                /*/
+                G4double lambda_phot = emCal.ComputeMeanFreePath(12*keV, G4Gamma::Gamma(), &quot;phot&quot;, elem);
+                G4double lambda_compt = emCal.ComputeMeanFreePath(12*keV, G4Gamma::Gamma(), &quot;compt&quot;, elem);
+                G4double lambda_conv = emCal.ComputeMeanFreePath(12*keV, G4Gamma::Gamma(), &quot;conv&quot;, elem);
+                G4double lambda_tot = 1/(1/lambda_phot + 1/lambda_compt + 1/lambda_conv);
+                G4cout &lt;&lt; &quot;Element MFP Phot: &quot; &lt;&lt; lambda_phot/mm &lt;&lt; G4endl;
+                G4cout &lt;&lt; &quot;Element MFP Total: &quot; &lt;&lt; lambda_tot/mm &lt;&lt; G4endl;
+                /*/
+                if (!elem) {
+                    G4cerr &lt;&lt; &quot;ERROR: Could not find element &#39;&quot; &lt;&lt; elemName &lt;&lt; &quot;&#39;&quot; &lt;&lt; G4endl;
+                }
+                components.emplace_back(elem, fraction);
+            }
+            break;
+        }
+        
+    }
+    if (!found || components.empty()) {
+        G4cerr &lt;&lt; &quot;Material &quot; &lt;&lt; materialName &lt;&lt; &quot;not found in file!&quot; &lt;&lt; G4endl;
+        return nullptr;
+    }
+    
+    G4Material* mat = new G4Material(materialName, density*g/cm3, components.size());
+    //G4cout &lt;&lt; materialName &lt;&lt; density &lt;&lt; components.size() &lt;&lt; G4endl;
+    for (const auto&amp; comp : components) {
+
+        G4cout &lt;&lt; &quot;First: &quot;&lt;&lt; comp.first &lt;&lt; &quot;Second: &quot; &lt;&lt; comp.second &lt;&lt; G4endl;
+
+        mat-&gt;AddMaterial(comp.first, comp.second);
+    }
+
+    return mat;
+}
+
+</pre></div>
+</div>
+<p>Header File:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#ifndef GmGetImage__hh</span>
+<span class="c1">#define GmGetImage__hh</span>
+
+<span class="c1">#include &quot;GamosCore/GamosUserActionMgr/include/GmUserRunAction.hh&quot;</span>
+<span class="c1">#include &quot;GamosCore/GamosUserActionMgr/include/GmUserEventAction.hh&quot;</span>
+<span class="c1">#include &quot;GamosCore/GamosUserActionMgr/include/GmUserSteppingAction.hh&quot;</span>
+<span class="c1">#include &quot;GamosCore/GamosUserActionMgr/include/GmUserTrackingAction.hh&quot;</span>
+<span class="c1">#include &quot;GamosCore/GamosSD/include/GmHitsEventMgr.hh&quot;</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">GmGetImage</span> <span class="p">:</span> <span class="n">public</span> <span class="n">GmUserRunAction</span><span class="p">,</span> <span class="n">public</span> <span class="n">GmUserEventAction</span><span class="p">,</span> <span class="n">public</span> <span class="n">GmUserSteppingAction</span>
+<span class="p">{</span>
+<span class="n">public</span><span class="p">:</span>
+    <span class="n">GmGetImage</span><span class="p">();</span>
+    <span class="o">~</span><span class="n">GmGetImage</span><span class="p">(){};</span>
+
+    <span class="n">virtual</span> <span class="n">void</span> <span class="n">BeginOfRunAction</span><span class="p">(</span> <span class="n">const</span> <span class="n">G4Run</span><span class="o">*</span> <span class="n">run</span><span class="p">);</span>
+    <span class="n">virtual</span> <span class="n">void</span> <span class="n">UserSteppingAction</span><span class="p">(</span><span class="n">const</span> <span class="n">G4Step</span><span class="o">*</span> <span class="n">aStep</span><span class="p">);</span>    
+    <span class="n">virtual</span> <span class="n">void</span> <span class="n">EndOfRunAction</span><span class="p">(</span><span class="n">const</span> <span class="n">G4Run</span><span class="o">*</span><span class="p">);</span>
+    <span class="n">virtual</span> <span class="n">void</span> <span class="n">EndOfEventAction</span><span class="p">(</span> <span class="n">const</span> <span class="n">G4Event</span><span class="o">*</span> <span class="p">);</span>
+    
+
+<span class="n">private</span><span class="p">:</span>
+        <span class="o">//</span><span class="n">metodos</span>
+        <span class="n">void</span> <span class="n">GetParams</span><span class="p">();</span>
+
+        <span class="o">//</span><span class="n">void</span> <span class="n">InitializeMap</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="nb">map</span><span class="o">&lt;</span><span class="n">double</span><span class="p">,</span> <span class="n">double</span><span class="o">&gt;&amp;</span> <span class="nb">map</span><span class="p">,</span> <span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">file_name</span><span class="p">);</span>
+        <span class="o">//</span><span class="n">double</span> <span class="n">GetMapValue</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="nb">map</span><span class="o">&lt;</span><span class="n">double</span><span class="p">,</span> <span class="n">double</span><span class="o">&gt;</span> <span class="nb">map</span><span class="p">,</span> <span class="n">double</span> <span class="n">stepEnergy</span><span class="p">);</span>
+
+        <span class="n">void</span> <span class="n">InitializeVector</span><span class="p">(</span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="p">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">double</span><span class="p">,</span> <span class="n">double</span><span class="o">&gt;&gt;&amp;</span> <span class="n">vec</span><span class="p">,</span> <span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">file_name</span><span class="p">);</span>
+        <span class="n">double</span> <span class="n">GetInterpolatedValue</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="p">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">double</span><span class="p">,</span> <span class="n">double</span><span class="o">&gt;&gt;&amp;</span> <span class="n">vec</span><span class="p">,</span> <span class="n">double</span> <span class="n">stepEnergy</span> <span class="p">);</span>
+
+        <span class="n">G4bool</span> <span class="n">AcceptStep</span><span class="p">(</span><span class="n">const</span> <span class="n">G4Step</span><span class="o">*</span><span class="p">);</span>
+        <span class="n">G4float</span> <span class="n">CalculateGridTransmissionProbability</span><span class="p">(</span><span class="n">const</span> <span class="n">G4ThreeVector</span><span class="o">&amp;</span> <span class="n">position</span><span class="p">,</span> <span class="n">const</span> <span class="n">G4ThreeVector</span><span class="o">&amp;</span> <span class="n">direction</span><span class="p">,</span> <span class="n">const</span> <span class="n">G4Step</span><span class="o">*</span> <span class="n">aStep</span><span class="p">);</span>        
+        <span class="n">void</span> <span class="n">FillMatrix_MCD</span><span class="p">(</span><span class="n">GmRecHit</span><span class="o">*</span> <span class="n">hit</span><span class="p">);</span>
+        <span class="n">void</span> <span class="n">FillMatrix_Virtual</span><span class="p">(</span><span class="n">const</span> <span class="n">G4Step</span><span class="o">*</span> <span class="n">aStep</span><span class="p">);</span>
+      
+        <span class="nb">int</span> <span class="n">EnergyToCharge</span><span class="p">(</span><span class="n">double</span> <span class="n">energyDeposited</span><span class="p">);</span>
+        <span class="n">void</span> <span class="n">WriteText</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
+        <span class="n">void</span> <span class="n">WriteMHD</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
+        <span class="n">void</span> <span class="n">WriteDCM</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">name</span><span class="p">);</span>
+        <span class="n">G4Material</span><span class="o">*</span> <span class="n">LoadCustomMaterial</span><span class="p">(</span><span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">materialName</span><span class="p">,</span> <span class="n">const</span> <span class="n">std</span><span class="p">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">filePath</span><span class="p">);</span>
+
+        <span class="o">//</span><span class="n">Atributos</span>
+        <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="p">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">double</span><span class="p">,</span> <span class="n">double</span><span class="o">&gt;&gt;</span> <span class="n">gridInterspaceMu</span><span class="p">,</span> <span class="n">gridStripMu</span><span class="p">,</span> <span class="n">efficiencyMap</span><span class="p">;</span>
+        <span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="p">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">double</span><span class="o">&gt;&gt;</span> <span class="n">output</span><span class="p">;</span>
+        <span class="n">G4int</span> <span class="n">numPixelsX</span><span class="p">,</span> <span class="n">numPixelsY</span><span class="p">,</span> <span class="n">totalEvents</span><span class="p">;</span>
+        <span class="n">G4double</span> <span class="n">pixelSizeX</span><span class="p">,</span> <span class="n">pixelSizeY</span><span class="p">,</span> <span class="n">zstop</span><span class="p">,</span> <span class="n">pairCreationEnergyEV</span><span class="p">,</span><span class="n">SensibilityOffset</span><span class="p">,</span> <span class="n">SensibilityFactor</span><span class="p">,</span> <span class="n">detectorThickness</span><span class="p">;</span>
+        <span class="n">G4String</span> <span class="n">outputFilename</span><span class="p">,</span> <span class="n">apply_grid</span><span class="p">,</span> <span class="n">detectorModel</span><span class="p">,</span> <span class="n">outputSel</span><span class="p">,</span> <span class="n">outputFolder</span><span class="p">,</span> <span class="n">outputFormat</span><span class="p">,</span> <span class="n">detectorMaterial</span><span class="p">;</span>
+        <span class="n">G4float</span> <span class="n">gridRatio</span><span class="p">,</span> <span class="n">sdd</span><span class="p">,</span> <span class="n">gridFreq</span><span class="p">,</span> <span class="n">gridStripThickness</span><span class="p">,</span> <span class="n">gap</span><span class="p">;</span>
+        <span class="n">G4Material</span><span class="o">*</span> <span class="n">DetectorMaterial</span><span class="p">;</span>
+        
+<span class="n">protected</span><span class="p">:</span>
+  <span class="n">G4ThreeVector</span> <span class="n">postR</span><span class="p">;</span>
+  <span class="n">G4ThreeVector</span> <span class="n">preR</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="c1">#endif</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Plugins" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="semicone.html" class="btn btn-neutral float-right" title="SemiCone" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Francisco Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

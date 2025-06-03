@@ -1,0 +1,190 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filters &mdash; MIMAC 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Voxelized Phantom Input File" href="dicom.html" />
+    <link rel="prev" title="Physics" href="physics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to.html">How to run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../victre/index.html">Phantom Generation using VICTRE</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Inputs Files</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="source.html">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="physics.html">Physics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Filters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-by-step-instructions">Step-by-Step Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dicom.html">Voxelized Phantom Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="write_en.html">Get Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scoring.html">Scoring</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bash_script.html">Bash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins_rst/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI_rst/index.html">GUI Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MIMAC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Inputs Files</a></li>
+      <li class="breadcrumb-item active">Filters</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/inputs_rst/filter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="filters">
+<h1>Filters<a class="headerlink" href="#filters" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This input file (<strong>Filters.in</strong>) set up the GAMOS’s filters used in the simulation.</p>
+</section>
+<section id="step-by-step-instructions">
+<h2>Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Link to this heading"></a></h2>
+<p>Users can modified some parameters of the voxelized phantom generation.</p>
+<ul class="simple">
+<li><p><strong>GmElectronFilter (Filter 1)</strong> kills all electrons.</p></li>
+<li><p><strong>GmSecondaryFilter (Filter 2)</strong> kills secondary particles.</p></li>
+<li><p><strong>ScTT (Filter 3)</strong> filter kills all photons that have suffered a Rayleight or Compton interaction.</p></li>
+<li><p><strong>killJaws (Filter 4)</strong> filter kills all photons that reach the jaws, with this filter we assure that the photons will go through the phantom and eventually will be detected at the detector.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If Filter 3 is used, make sure to define the jaws as a Geant4-solid.</p>
+</div>
+</section>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">#################</span>
+<span class="linenos"> 2</span><span class="c1"># FILTERS SETUP #</span>
+<span class="linenos"> 3</span><span class="c1">#################</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Photons affected by Rayleigh scattering</span>
+<span class="linenos"> 6</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="nb">filter</span> <span class="n">RL</span> <span class="n">GmProcessFilter</span> <span class="n">Rayl</span>
+<span class="linenos"> 7</span><span class="c1"># Photons affected by Compton scattering</span>
+<span class="linenos"> 8</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="nb">filter</span> <span class="n">Cmp</span> <span class="n">GmProcessFilter</span> <span class="n">compt</span>
+<span class="linenos"> 9</span><span class="c1"># Scattered photons filter</span>
+<span class="linenos">10</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="nb">filter</span> <span class="n">ScTT</span> <span class="n">GmORFilter</span> <span class="n">RL</span> <span class="n">Cmp</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># kill photons at the jaws</span>
+<span class="linenos">13</span><span class="c1">#/gamos/filter KillJawsx1 GmEnterPhysicalVolumeFilter x1jaw</span>
+<span class="linenos">14</span><span class="c1">#/gamos/filter KillJawsx2 GmEnterPhysicalVolumeFilter x2jaw</span>
+<span class="linenos">15</span><span class="c1">#/gamos/filter KillJawsy1 GmEnterPhysicalVolumeFilter y1jaw</span>
+<span class="linenos">16</span><span class="c1">#/gamos/filter KillJawsy2 GmEnterPhysicalVolumeFilter y2jaw</span>
+<span class="linenos">17</span><span class="c1">#/gamos/filter killJaws GmORFilter KillJawsx1 KillJawsx2 KillJawsy1 KillJawsy2</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1">#################</span>
+<span class="linenos">20</span><span class="c1"># APPLY FILTERS #</span>
+<span class="linenos">21</span><span class="c1">#################</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="c1">#Apply Filter1, Kill all electrons</span>
+<span class="linenos">24</span><span class="o">/</span><span class="n">gamos</span><span class="o">/</span><span class="n">userAction</span> <span class="n">GmKillAtStackingActionUA</span> <span class="n">GmElectronFilter</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="c1">#Apply Filter2, Kill secondary tracks</span>
+<span class="linenos">27</span><span class="c1">#/gamos/userAction GmKillAtSteppingActionUA GmSecondaryFilter</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="c1">#Apply Filter3, Kill scattered photons</span>
+<span class="linenos">30</span><span class="c1">#/gamos/userAction GmKillAtSteppingActionUA ScTT</span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="c1">#Apply Filter4, Kill photons at the jaws</span>
+<span class="linenos">33</span><span class="c1">#/gamos/userAction GmKillAtSteppingActionUA killJaws</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="physics.html" class="btn btn-neutral float-left" title="Physics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dicom.html" class="btn btn-neutral float-right" title="Voxelized Phantom Input File" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Francisco Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phantom Generation &mdash; MIMAC 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Simulation Setup" href="SimConfiguration.html" />
+    <link rel="prev" title="GUI Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to.html">How to run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../victre/index.html">Phantom Generation using VICTRE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inputs_rst/index.html">Inputs Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bash_script.html">Bash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins_rst/index.html">Plugins</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">GUI Documentation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Phantom Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-by-step-instructions">Step-by-Step Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-the-material-file">1. Create the material file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#load-the-mhd-raw-file">2. Load the MHD/RAW file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modification-of-the-phantom">3. Modification of the phantom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#victre-s-phantom-modifications">4. VICTRE’s phantom modifications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="SimConfiguration.html">Simulation Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="energy_dcm.html">Image Formation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MIMAC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">GUI Documentation</a></li>
+      <li class="breadcrumb-item active">Phantom Generation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/GUI_rst/phantom_generation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="phantom-generation">
+<h1>Phantom Generation<a class="headerlink" href="#phantom-generation" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The phantom generation module is used to generate the g4dcm format file necessary to simulate the X-ray projetions using a voxelized phantom in GAMOS/GEANT4. It uses MHD/RAW files as input and transforms them into the g4dcm format.
+The MHD/RAW files can be generated by the VICTRE project, which provides a set of breast phantoms for simulation purposes or other breast phantoms.
+To transform the MHD/RAW files into g4dcm format, it is needed to write a material file which contains the information of the materials used in the phantom, their ID and density. This file must be located in the <strong>data/materials/</strong> folder.</p>
+</section>
+<section id="step-by-step-instructions">
+<h2>Step-by-Step Instructions<a class="headerlink" href="#step-by-step-instructions" title="Link to this heading"></a></h2>
+<section id="create-the-material-file">
+<h3>1. Create the material file<a class="headerlink" href="#create-the-material-file" title="Link to this heading"></a></h3>
+<blockquote>
+<div><blockquote>
+<div><p>The material file must contain the information of the materials used in the phantom, their ID and density. This file must be located in the <strong>data/materials/</strong> folder. The format of the file is as follows:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>0 0.0012 G4_AIR 0
+1 0.9201 G4_ADIPOSE_TISSUE_ICRP 1
+2 1.0901 Skin 7
+...
+</pre></div>
+</div>
+</div></blockquote>
+<p>where the first column is the material ID of the MHD/RAW file, the second column is the density in g/cm^3, the third column is the name of the material and the fourth material is an index of the g4dcm. Similar materials <strong>must</strong> have the same g4dcm index.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Make sure the material name is defined by GEANT4 or is defined in the <strong>/geom/MyMaterials.txt</strong> file.</p></li>
+</ul>
+</div>
+</div></blockquote>
+</div></blockquote>
+</section>
+<section id="load-the-mhd-raw-file">
+<h3>2. Load the MHD/RAW file<a class="headerlink" href="#load-the-mhd-raw-file" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Open MHD/RAW file</strong></dt><dd><ul>
+<li><p>Users can load the MHD/RAW file using the button “Load MHD/RAW file” in the GUI.</p></li>
+<li><p>The MHD/RAW file must be located in the <strong>data/original_mhd/</strong> folder.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Select material file</strong></dt><dd><ul>
+<li><p>Users can select the material file through a combobox in the GUI. The files available are the one located in the <strong>data/materials/</strong> folder.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="modification-of-the-phantom">
+<h3>3. Modification of the phantom<a class="headerlink" href="#modification-of-the-phantom" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Reset Origin</strong></dt><dd><ul>
+<li><p>Users can reset the origin of the phantom using the button “Reset Origin” in the GUI. This will set the origin of the phantom to (0,0,0) in the g4dcm file (recommended).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Free crop</strong></dt><dd><ul>
+<li><p>Users can crop the phantom using the button “Free Crop” in the GUI. This will allow users to select a region of interest in the phantom and crop it.</p></li>
+<li><p>The coordinates of the crop can be modified through entry boxes in the GUI or clicking the <strong>Show Crop planes</strong> button.</p></li>
+<li><p>If <strong>Show Crop planes</strong> button is clicked, the crop planes will be shown in the GUI. The crop planes can be moved using the mouse.</p></li>
+<li><p>Once the crop is done, users can directly generate the g4dcm pressing the button “Generate g4dcm file” in the GUI.</p></li>
+<li><p>The button <strong>Hide Crop planes</strong> will hide the crop planes and eliminate the crop selection.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="victre-s-phantom-modifications">
+<h3>4. VICTRE’s phantom modifications<a class="headerlink" href="#victre-s-phantom-modifications" title="Link to this heading"></a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Remove Chest Wall</strong>: The chest wall of the VICTRE’s breast phantom is removed.</p></li>
+<li><p><strong>Include compression paddle</strong>: The compression paddle of the VICTRE’s breast phantom is included.</p></li>
+<li><p><strong>Remove Air</strong>: Slices made just by air are removed.</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>If you are working with a database of breast phantoms, maybe you need to rotate it or made some modifications.</p></li>
+<li><p>A new MHD/RAW file will be generated with the modifications made. It will be located in the <strong>data/new_mhd/</strong> folder with the original file name.</p></li>
+<li><p>The RAM consuption of this module can be high if the voxelized phantom contains a los of voxels.</p></li>
+</ul>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="GUI Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="SimConfiguration.html" class="btn btn-neutral float-right" title="Simulation Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Francisco Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

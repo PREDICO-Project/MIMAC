@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MIMAC documentation! &mdash; MIMAC 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction and Workflow" href="introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#">
+            
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to.html">How to run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="victre/index.html">Phantom Generation using VICTRE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs_rst/index.html">Inputs Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bash_script.html">Bash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins_rst/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GUI_rst/index.html">GUI Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">MIMAC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MIMAC documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mimac-documentation">
+<h1>MIMAC documentation!<a class="headerlink" href="#mimac-documentation" title="Link to this heading"></a></h1>
+<section id="id1">
+<h2><a class="reference external" href="https://github.com/PREDICO-Project/MIMAC.git">Access to MIMAC GitHub repository</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<p>This documentation describes the GAMOS (Geant4-based Architecture for Medicine-Oriented Simulations) <a class="reference internal" href="references.html"><span class="doc">[1]</span></a> code used to simulate X-ray projections and mammography images using breast phantoms generated by the VICTRE project <a class="reference internal" href="references.html"><span class="doc">[2]</span></a>.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="how_to.html">How to run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Geometry</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="geometry.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="victre/index.html">Phantom Generation using VICTRE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inputs_rst/index.html">Inputs Files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inputs_rst/source.html">Source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/source.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/source.html#step-by-step-instructions">Step-by-Step Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/source.html#example">Example:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inputs_rst/physics.html">Physics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/physics.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/physics.html#step-by-step-instructions">Step-by-Step Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/physics.html#example">Example:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inputs_rst/filter.html">Filters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/filter.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/filter.html#step-by-step-instructions">Step-by-Step Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/filter.html#example">Example:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inputs_rst/dicom.html">Voxelized Phantom Input File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/dicom.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/dicom.html#step-by-step-instructions">Step-by-Step Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/dicom.html#example">Example:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inputs_rst/write_en.html">Get Image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/write_en.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/write_en.html#step-by-step-instructions">Step-by-Step Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="inputs_rst/write_en.html#detector-parameters">1. Detector Parameters.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="inputs_rst/write_en.html#anti-scatter-grid">2.Anti-scatter grid.</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="inputs_rst/write_en.html#example">Example:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="inputs_rst/scoring.html">Scoring</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bash_script.html">Bash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="output.html">Output</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="output.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins_rst/index.html">Plugins</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plugins_rst/getenergy.html">GmGetImage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_rst/semicone.html">SemiCone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plugins_rst/pyr_iso.html">Pyr_Isotropic_dist</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GUI_rst/index.html">GUI Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="GUI_rst/phantom_generation.html">Phantom Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="GUI_rst/phantom_generation.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GUI_rst/phantom_generation.html#step-by-step-instructions">Step-by-Step Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/phantom_generation.html#create-the-material-file">1. Create the material file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/phantom_generation.html#load-the-mhd-raw-file">2. Load the MHD/RAW file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/phantom_generation.html#modification-of-the-phantom">3. Modification of the phantom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/phantom_generation.html#victre-s-phantom-modifications">4. VICTRE’s phantom modifications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="GUI_rst/SimConfiguration.html">Simulation Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="GUI_rst/SimConfiguration.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GUI_rst/SimConfiguration.html#step-by-step-instructions">Step-by-Step Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/SimConfiguration.html#configuration-files-management">1. Configuration files Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/SimConfiguration.html#summary-of-the-simulation">2. Summary of the simulation.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/SimConfiguration.html#main-frame">3. Main Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/SimConfiguration.html#geometry-frame">4. Geometry Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/SimConfiguration.html#source-frame">5. Source Frame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/SimConfiguration.html#detector-frame">6. Detector Frame</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="GUI_rst/energy_dcm.html">Image Formation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="GUI_rst/energy_dcm.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GUI_rst/energy_dcm.html#step-by-step-instructions">Step-by-Step Instructions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/energy_dcm.html#loading-data">1. Loading Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/energy_dcm.html#parameter-configuration">2. Parameter Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="GUI_rst/energy_dcm.html#summary-frame">3. Summary Frame</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">References</a></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction and Workflow" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Francisco Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

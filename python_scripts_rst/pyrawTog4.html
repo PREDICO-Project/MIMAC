@@ -1,0 +1,129 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyrawTog4 &mdash; MIMAC 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction and Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how_to.html">How to run</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../victre/index.html">Phantom Generation using VICTRE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inputs_rst/index.html">Inputs Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bash_script.html">Bash script</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../output.html">Output</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins_rst/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GUI_rst/index.html">GUI Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MIMAC</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">pyrawTog4</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/python_scripts_rst/pyrawTog4.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pyrawtog4">
+<h1>pyrawTog4<a class="headerlink" href="#pyrawtog4" title="Link to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">pyrawTog4.py</span></code> scripts contains the <code class="docutils literal notranslate"><span class="pre">DCM2G4</span></code> class with the methods used to generate the .g4dcm format file interpreted by Geant4 to read the voxelized phantom.</p>
+<p>There are some important notes to use correctly this script.</p>
+<ul class="simple">
+<li><p>The mhd/raw files with the voxelized phantoms must be in <code class="docutils literal notranslate"><span class="pre">data/original_mhd/</span></code> folder.</p></li>
+<li><p>Must be a <code class="docutils literal notranslate"><span class="pre">materials.txt</span></code> file with the Voxel Value - Density (g/cm²) - material - ID inside <code class="docutils literal notranslate"><span class="pre">data/materials/</span></code> folder.</p></li>
+<li><p>The mhd/raw filename must be specified in the <code class="docutils literal notranslate"><span class="pre">DCM2G4._filein_name</span></code> attribute, the output filename will be the same as the input filename.</p></li>
+<li><p>The attribute <code class="docutils literal notranslate"><span class="pre">DCM2G4.remove_chest_wall</span></code> if True, removes the chest wall.</p></li>
+<li><p>The attribute <code class="docutils literal notranslate"><span class="pre">DCM2G4.in_or_out</span></code> if 0 includes the compression paddle, if 1 the compression paddle is not included.</p></li>
+<li><p>The attribute <code class="docutils literal notranslate"><span class="pre">DCM2G4.cut_only_air</span></code> if True removes slices that contains just air (recommended).</p></li>
+<li><p>The attribute <code class="docutils literal notranslate"><span class="pre">DCM2G4.free_cut</span></code> if True, cuts the slices as you desire with the attributes <code class="docutils literal notranslate"><span class="pre">DCM2G4.slice_ini</span></code>, <code class="docutils literal notranslate"><span class="pre">DCM2G4.slice_end</span></code>, <code class="docutils literal notranslate"><span class="pre">DCM2G4.colum_ini</span></code>, <code class="docutils literal notranslate"><span class="pre">DCM2G4.colum_end</span></code>, <code class="docutils literal notranslate"><span class="pre">DCM2G4.row_ini</span></code> and <code class="docutils literal notranslate"><span class="pre">DCM2G4.row_end</span></code>.</p></li>
+<li><p>The attribute <code class="docutils literal notranslate"><span class="pre">DCM2G4.dcm</span></code> if True, a DICOM set of images inside <code class="docutils literal notranslate"><span class="pre">data/dcm/</span></code> folder will be generated. It is useful to check if the applied cuts have been perform as desired.</p></li>
+<li><p>The attribute <code class="docutils literal notranslate"><span class="pre">DCM2G4.raw</span></code> if True, a raw/mhd images inside <code class="docutils literal notranslate"><span class="pre">data/new_mhd/</span></code> folder will be generated. It is useful to check if the applied cuts have been perform as desired. This file will be used in SimRun.py to calculate the number of pixels of the detector and the displacement of the phantom to be aligned with the source.</p></li>
+<li><p>The method <code class="docutils literal notranslate"><span class="pre">DCM2G4.create_phantom_file()</span></code> will run all the methods to generate the .g4dcm file.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Francisco Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
