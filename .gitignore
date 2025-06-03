@@ -24,4 +24,7 @@ docs/_build/
 *.mhd
 *.raw
 
+# Files
+updateghpages.sh
+
 
