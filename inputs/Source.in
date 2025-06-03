@@ -1,0 +1,16 @@
+########################
+##    SOURCE Setup    ##
+########################
+
+#Initialization
+/gamos/generator/addSingleParticleSource source gamma 0.85*MeV
+
+#Spectra
+/gamos/generator/energyDist source GmGenerDistEnergyFromFile spectra/25Mo-Rh0.025.in interpolate
+
+#Position Distribution
+/gamos/generator/positionDist source GmGenerDistPositionDisc 0.3 0.0 0.0 0. 0. 0. -1.
+
+#Distribution Shape
+/gamos/generator/directionDist source Pyr_Dist_Isotropic 0. 0. 1. 750.0 20.0 20.0 0. 0.
+

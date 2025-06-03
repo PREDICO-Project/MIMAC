@@ -1,0 +1,16 @@
+################
+# PHYSIC SETUP #
+################
+
+#Physics EMstandard
+/gamos/physicsList GmEMPhysics
+
+#Set CUT-OFF. Range
+/run/setCut 1.0
+
+#Generator
+/gamos/generator GmGenerator
+
+#INITIALISE GEANT4
+/run/initialize
+

@@ -12,9 +12,7 @@ docs/_build/
 # Folders
 geom/elementsInWorld/
 geom/worlds/
-inputs/
 main_files/
-output/
 docs/_build/
 
 

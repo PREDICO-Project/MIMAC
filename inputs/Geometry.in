@@ -1,0 +1,8 @@
+##################
+# GEOMETRY SETUP #
+##################
+
+# Standard geometry
+/gamos/setParam GmGeometryFromText:FileName geom/worlds/world.geom 
+/gamos/geometry GmGeometryFromText 
+

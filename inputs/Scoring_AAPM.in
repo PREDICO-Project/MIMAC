@@ -1,0 +1,100 @@
+ 
+##################################### 
+##        DOSE AAPM PHANTOM        ## 
+#####################################
+
+## flux check
+
+# Creating a multifunctional paddleTop detector
+#/gamos/scoring/createMFDetector fluxINDetpaddleTop paddleTop
+
+# Adding scorers to the multifunctional detector
+#/gamos/setParam fluxScorer0:Direction In/gamos/setParam fluxScorer0:Surfaces Z-
+#/gamos/setParam fluxScorer0:DivideByAngle 0
+#/gamos/setParam fluxScorer0:DivideByArea 0
+#/gamos/scoring/addScorer2MFD fluxScorer0 GmPSSurfaceFlux fluxINDetpaddleTop
+
+## Tissue Scoring
+
+# Creating a multifunctional tissue detector
+/gamos/scoring/createMFDetector doseEnergyDetTissue tissue
+
+# Adding scorers to the multifunctional detector
+#/gamos/scoring/addScorer2MFD doseScorerTissue GmG4PSDoseDeposit doseEnergyDetTissue
+/gamos/scoring/addScorer2MFD energyScorerTissue GmG4PSEnergyDeposit doseEnergyDetTissue
+#/gamos/setParam fluxScorer1:Direction In
+#/gamos/setParam fluxScorer1:Surfaces DOWN UP INNER
+#/gamos/setParam fluxScorer1:DivideByAngle 0
+#/gamos/setParam fluxScorer1:DivideByArea 0
+#/gamos/scoring/addScorer2MFD fluxScorer1 GmPSSurfaceFlux doseEnergyDetTissue
+
+# Setting output file names (ensure unique names)
+#/gamos/setParam GmPSPrinterTextFile:FileName result.out
+#/gamos/setParam energyScorerTissue:FileName doseInTissue.out  # Use the same filename for consistency
+
+# Adding the printer to both scorers (print by event is not needed)
+#/gamos/scoring/addPrinter2Scorer GmPSPrinterTextFile doseScorerTissue
+#/gamos/scoring/addPrinter2Scorer GmPSPrinterTextFile energyScorerTissue
+#/gamos/scoring/printByEvent energyScorerTissue TRUE
+
+## VOIs SCORING
+
+#Creating multifunctional VOI detector 
+/gamos/scoring/createMFDetector doseEnergyDetVOI dosimeterVOI
+
+/gamos/scoring/addScorer2MFD energyScorerVOI GmG4PSEnergyDeposit doseEnergyDetVOI
+#/gamos/scoring/addScorer2MFD doseScorerVOI GmG4PSDoseDeposit doseEnergyDetVOI
+#/gamos/setParam fluxScorerVOI:Direction In
+#/gamos/setParam fluxScorerVOI:Surfaces Z- Z+ Y- Y+ X- X+ 
+#/gamos/setParam fluxScorerVOI:DivideByAngle 0
+#/gamos/setParam fluxScorerVOI:DivideByArea 0
+#/gamos/scoring/addScorer2MFD fluxScorerVOI GmPSSurfaceFlux doseEnergyDetVOI
+
+/gamos/classifier classifierAncestorsVOI  GmClassifierByAncestors 2 10
+
+#/gamos/scoring/assignClassifier2Scorer classifierAncestorsVOI doseScorerVOI
+/gamos/scoring/assignClassifier2Scorer classifierAncestorsVOI energyScorerVOI 
+#/gamos/scoring/assignClassifier2Scorer classifierAncestorsVOI fluxScorerVOI
+
+#/gamos/setParam GmPSPrinterTextFile:FileName Dose.out 
+#/gamos/scoring/addPrinter2Scorer GmPSPrinterTextFile doseScorerVOI
+#/gamos/scoring/printByEvent doseScorerVOI FALSE
+
+#/gamos/setParam GmPSPrinterTextFile:FileName EnergyScorer.out 
+#/gamos/scoring/addPrinter2Scorer GmPSPrinterTextFile energyScorerVOI 
+#/gamos/scoring/printByEvent energyScorerVOI FALSE
+
+## ROIsFF SCORING
+
+#Creating multifunctional ROIFF detector 
+#/gamos/scoring/createMFDetector doseEnergyDetROIFF dosimeterROIFF
+
+#/gamos/scoring/addScorer2MFD energyScorerROIFF GmG4PSEnergyDeposit doseEnergyDetROIFF
+#/gamos/scoring/addFilter2Scorer ScTT energyScorerROIFF
+#/gamos/scoring/addScorer2MFD doseScorerROIFF GmG4PSDoseDeposit doseEnergyDetROIFF
+#/gamos/setParam fluxScorerROIFF:Direction In
+#/gamos/setParam fluxScorerROIFF:Surfaces Z-
+#/gamos/scoring/addScorer2MFD fluxScorerROIFF GmPSSurfaceFlux doseEnergyDetROIFF
+
+#/gamos/classifier classifierAncestorsROIFF  GmClassifierByAncestors 2 10
+
+#/gamos/scoring/assignClassifier2Scorer classifierAncestorsROIFF doseScorerROIFF
+#/gamos/scoring/assignClassifier2Scorer classifierAncestorsROIFF energyScorerROIFF 
+#/gamos/scoring/assignClassifier2Scorer classifierAncestorsROIFF fluxScorerROIFF
+
+## ROIsPS SCORING
+
+#Creating multifunctional ROIPS detector 
+#/gamos/scoring/createMFDetector doseEnergyDetROIPS dosimeterROIPS
+
+#/gamos/scoring/addScorer2MFD energyScorerROIPS GmG4PSEnergyDeposit doseEnergyDetROIPS
+#/gamos/scoring/addScorer2MFD doseScorerROIPS GmG4PSDoseDeposit doseEnergyDetROIPS
+#/gamos/setParam fluxScorerROIPS:Direction In
+#/gamos/setParam fluxScorerROIPS:Surfaces Z-
+#/gamos/scoring/addScorer2MFD fluxScorerROIPS GmPSSurfaceFlux doseEnergyDetROIPS
+
+#/gamos/classifier classifierAncestorsROIPS  GmClassifierByAncestors 2 10
+
+#/gamos/scoring/assignClassifier2Scorer classifierAncestorsROIPS doseScorerROIPS
+#/gamos/scoring/assignClassifier2Scorer classifierAncestorsROIPS energyScorerROIPS 
+#/gamos/scoring/assignClassifier2Scorer classifierAncestorsROIPS fluxScorerROIPS

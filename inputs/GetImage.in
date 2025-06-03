@@ -1,0 +1,46 @@
+########################
+# DETECTOR MODEL SETUP #
+########################
+
+# Virtual detector segmentation
+#/gamos/setParam SD:VirtSegmBox:NDiv:Absorber 1765.0 1765.0 1.
+#/gamos/setParam SD:VirtSegmBox:Width:Absorber 150.025 150.025 0.2
+#/gamos/SD/assocSD2LogVol GmSDVirtSegmBox Absorber detector
+#/gamos/SD/recHitBuilder GmRecHitBuilderBydose Absorber
+
+/gamos/setParam GetImage:NumPixelsX 1765.0
+/gamos/setParam GetImage:NumPixelsY 1765.0
+/gamos/setParam GetImage:PixelSizeX 0.085
+/gamos/setParam GetImage:PixelSizeY 0.085
+/gamos/setParam GetImage:DetectorThickness 0.2
+/gamos/setParam GetImage:zStop 748.9
+/gamos/setParam GetImage:DetectorMaterial aSe
+/gamos/setParam GetImage:PairCreationEnergy 50.0
+
+################
+# OUTPUT SETUP #
+################
+
+/gamos/setParam GetImage:DetectorModel VD
+/gamos/setParam GetImage:OutputType Energy
+/gamos/setParam GetImage:ResultsFolder output/
+/gamos/setParam GetImage:OutputFilename output_image
+/gamos/setParam GetImage:OutputFormat MHD/RAW
+
+#####################
+# ANTI-SCATTER GRID #
+#####################
+
+/gamos/setParam Grid:UseGrid Yes
+/gamos/setParam Grid:Ratio 5.0
+/gamos/setParam Grid:SourceDetectorDistance 748.9
+/gamos/setParam Grid:Frequency 3.1
+/gamos/setParam Grid:StripThickness 0.065
+/gamos/setParam Grid:Gap -75.0125
+
+####################
+# USER ACTION CALL #
+####################
+
+/gamos/userAction GmGetImage
+
