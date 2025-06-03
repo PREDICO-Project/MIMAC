@@ -9,8 +9,8 @@
 /gamos/generator/energyDist source GmGenerDistEnergyFromFile spectra/25Mo-Rh0.025.in interpolate
 
 #Position Distribution
-/gamos/generator/positionDist source GmGenerDistPositionDisc 0.3 0.0 0.0 0. 0. 0. -1.
+/gamos/generator/positionDist source GmGenerDistPositionDiscGaussian 0.3 -75.0125 0. 0. 0. 0. -1.
 
 #Distribution Shape
-/gamos/generator/directionDist source Pyr_Dist_Isotropic 0. 0. 1. 750.0 20.0 20.0 0. 0.
+/gamos/generator/directionDist source Pyr_Dist_Isotropic 0. 0. 1. 750.0 150.025 150.025 0. 0.
 

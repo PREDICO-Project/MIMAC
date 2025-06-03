@@ -18,8 +18,8 @@
 # DETECTOR SETUP
 /control/execute inputs/GetImage.in
 
-# SCORING ON ION-CHAMBER SETUP
-/control/execute inputs/ScoringIOC.in
+# CORING ON ION-CHAMBER SETUP
+#/control/execute inputs/ScoringIOC.in
 
 # VERBOSITY SETUP
 /gamos/log/writeFiles FALSE

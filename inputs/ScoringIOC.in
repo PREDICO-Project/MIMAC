@@ -6,14 +6,12 @@
 # Creating multifunctional detector
 /gamos/scoring/createMFDetector IOC ionchamber
 
-# Scorer link
-/gamos/scoring/addScorer2MFD kerma GmG4PSKerma IOC
+/gamos/scoring/addScorer2MFD Dose GmG4PSDoseDeposit IOC
 
 # Scorer Errors
 #/gamos/scoring/scoreErrors Dose FALSE
 #/gamos/scoring/scoreErrors kerma FALSE
 
-# Scorer Print results
 /gamos/setParam GmPSPrinterTextFile:FileName output/kerma_25Mo-Rh0.025.out
-/gamos/scoring/addPrinter2Scorer GmPSPrinterTextFile kerma
+/gamos/scoring/addPrinter2Scorer GmPSPrinterTextFile Dose
 

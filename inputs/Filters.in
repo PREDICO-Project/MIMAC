@@ -21,7 +21,7 @@
 #################
 
 #Apply Filter1, Kill all electrons
-#/gamos/userAction GmKillAtStackingActionUA GmElectronFilter
+/gamos/userAction GmKillAtStackingActionUA GmElectronFilter
 
 #Apply Filter2, Kill secondary tracks
 #/gamos/userAction GmKillAtSteppingActionUA GmSecondaryFilter

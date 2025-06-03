@@ -49,7 +49,10 @@
 #:include geom/elementsInWorld/jaws.geom
 
 # Ionization Chamber
-:include geom/elementsInWorld/Ion_Chamber.geom
+#:include geom/elementsInWorld/Ion_Chamber.geom
+
+# Phantom geometry
+:include geom/elementsInWorld/Sphere.geom
 
 # Physical Detector
 #:include geom/elementsInWorld/detector.geom

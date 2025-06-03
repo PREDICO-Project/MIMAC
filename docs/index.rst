@@ -16,6 +16,7 @@ This documentation describes the GAMOS (Geant4-based Architecture for Medicine-O
    :caption: Contents:
 
    introduction
+   how_to
    geometry
    victre/index.rst
    inputs_rst/index.rst
