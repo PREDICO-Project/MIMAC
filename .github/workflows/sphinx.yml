@@ -2,17 +2,20 @@ name: Build and deploy Sphinx docs to GitHub Pages
 
 on:
   push:
-    branches: [main]  # o tu rama principal
+    branches: [main]  # Usa 'master' si tu rama principal se llama así
     paths:
-      - 'docs/**'
+      - 'docs/**'      # Solo se activa si cambias algo en la carpeta docs
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
+    - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        submodules: recursive  # Solo si usas submódulos
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -21,10 +24,11 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install sphinx
-        pip install -r docs/requirements.txt || true
+        pip install sphinx nbsphinx sphinx-rtd-theme
+        # Si tienes requirements.txt, puedes usar:
+        # pip install -r docs/requirements.txt
 
-    - name: Build HTML
+    - name: Build HTML with Sphinx
       run: |
         cd docs
         make html
@@ -32,7 +36,5 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
-        branch: gh-pages
-        directory: gh-pages
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/_build/html
+        publish_dir: docs/_build/html
