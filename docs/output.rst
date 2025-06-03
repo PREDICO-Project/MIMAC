@@ -10,4 +10,3 @@ Overview
 - The format of the output file can be DICOM, MHD/RAW or Text.
 - Output files need to be processed to add electronic noise and convert the units of the pixel into gray scale (through a Sensitivity Curve). It can be done using the GUI.
 
-
