@@ -1,40 +1,49 @@
-name: Build and deploy Sphinx docs to GitHub Pages
+name: Compile and deploy Sphinx documentation
 
 on:
   push:
-    branches: [main]  
+    branches:
+      - main
     paths:
-      - 'docs/**'     
+      - 'docs/**'
 
 jobs:
-  build:
+  docs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
       with:
-        submodules: recursive 
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set up Python
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
     - name: Install dependencies
       run: |
         pip install sphinx nbsphinx sphinx-rtd-theme
-        # Si tienes requirements.txt, puedes usar:
-        # pip install -r docs/requirements.txt
 
     - name: Build HTML with Sphinx
       run: |
         cd docs
         make html
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: docs/_build/html
+    
+    - name: Clone gh-pages branch
+      run: |
+        git clone --branch gh-pages https://github.com/PREDICO-Project/MIMAC.git gh-pages
+  
+        cp -r docs/_build/html/* gh-pages/
+        cd gh-pages
+        touch .nojekyll
+        git config user.email "action@github.com"
+        git config user.name "GitHub Action"
+        git add .
+        git commit -m "Update documentation" -a || echo "No changes to commit"
+
+    - name: Push changes to gh-pages
+      run: |
+        cd gh-pages
+        git push origin gh-pages
