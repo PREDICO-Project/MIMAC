@@ -12,6 +12,7 @@ docs/_build/
 # Folders
 main_files/
 docs/_build/
+gh-pages/
 
 
 # Formats

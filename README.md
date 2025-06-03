@@ -52,7 +52,7 @@ pip install -r requirements.txt
 
 
 # Documentation
-To find further information about the developed code, please refer to the documentation ( ... ).
+To find further information about the developed code, please refer to the documentation https://predico-project.github.io/MIMAC/ .
 
 # How to run
 First clone the repository:
