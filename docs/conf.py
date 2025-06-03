@@ -10,8 +10,8 @@ sys.path.insert(0, os.path.abspath(".."))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'MIMAC'
-copyright = '2024, Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto'
-author = 'Rafael Lozano Martínez & Víctor Sánchez Lara'
+copyright = '2024, Francisco Rafael Lozano Martínez, Víctor Sánchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martínez Gómez and Diego García Pinto'
+author = 'Francisco Rafael Lozano Martínez & Víctor Sánchez Lara'
 release = '0.0.1'
 
 # -- General configuration ---------------------------------------------------
