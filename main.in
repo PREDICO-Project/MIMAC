@@ -18,8 +18,8 @@
 # DETECTOR SETUP
 /control/execute inputs/GetImage.in
 
-# CORING ON ION-CHAMBER SETUP
-#/control/execute inputs/ScoringIOC.in
+# SCORING ON ION-CHAMBER SETUP
+/control/execute inputs/ScoringIOC.in
 
 # VERBOSITY SETUP
 /gamos/log/writeFiles FALSE
@@ -31,4 +31,4 @@
 #/gamos/random/setSeeds 2142 22213
 
 # RUN N EVENTS
-/run/beamOn 1000000000
+/run/beamOn 100000000

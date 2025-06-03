@@ -13,10 +13,6 @@ docs/_build/
 geom/elementsInWorld/
 geom/worlds/
 inputs/
-data/g4dcm/
-data/dcm/
-data/new_mhd/
-data/original_mhd/
 main_files/
 output/
 docs/_build/
