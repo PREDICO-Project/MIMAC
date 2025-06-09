@@ -147,6 +147,7 @@ make -jn
 ```
 With n the number of cores used on the compilation.
 
+
 # Citation
 If you use this software, please cite this paper:
 
