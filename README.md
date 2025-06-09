@@ -1,6 +1,21 @@
 
 # MIMAC
-Mammographic Imaging Monte Carlo (MIMAC) is a code based on [GAMOS](http://fismed.ciemat.es/GAMOS/) (Geant4-based Architecture for Medicine-Oriented Simulations) to simulate mammographic images. GAMOS needs two types of files, first the input files where the physics are defined and the second type of files is the geometry files. 
+
+<p align="center">
+<img src="./Readme_Images/logo.png" width="80%"></img>
+</p>
+
+Mammographic Imaging Monte Carlo (MIMAC) is a code based on [GAMOS](http://fismed.ciemat.es/GAMOS/) (Geant4-based Architecture for Medicine-Oriented Simulations) to simulate mammographic images. We present a simulation pipeline for digital mammography based on the GAMOS framework, enabling realistic image formation and dose estimation using high-fidelity anatomical phantoms and flexible detector modeling.
+
+* **Citation:** F. Lozano, V. Sanchez-Lara, C. Huerga, et al., “Simulation of digital mammographic images using gamos: Proof of concept,” Phys. Medica 135, 104995 (2025) [doi:10.1016/j.ejmp.2025.104995](https://doi.org/10.1016/j.ejmp.2025.104995).
+
+* **Documentation**: Full documentation can be found here: https://predico-project.github.io/MIMAC/
+
+
+**License**: All code is under MIT except for the GAMOS files.
+
+*MIMAC team: Francisco Rafael Lozano Martinez, Victor Sanchez Lara, Carlos Huerga Cabrerizo, Luis Carlos Martinez Gomez and Diego Garcia Pinto*
+
 ## Table Of Contents
 * [Introduction](#Introduction)
 * [Requirements](#Requirements)
