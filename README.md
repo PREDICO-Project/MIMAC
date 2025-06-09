@@ -2,7 +2,7 @@
 # MIMAC
 
 <p align="center">
-<img src="./Readme_Images/logo.png" width="80%"></img>
+<img src="./Readme_Images/logo.png" width="60%"></img>
 </p>
 
 Mammographic Imaging Monte Carlo (MIMAC) is a code based on [GAMOS](http://fismed.ciemat.es/GAMOS/) (Geant4-based Architecture for Medicine-Oriented Simulations) to simulate mammographic images. We present a simulation pipeline for digital mammography based on the GAMOS framework, enabling realistic image formation and dose estimation using high-fidelity anatomical phantoms and flexible detector modeling.
@@ -68,6 +68,7 @@ To install all the dependencies run:
 pip install -r requirements.txt
 ```
 
+We present a derivation of **GAMOS** code. Users must compile and install GAMOS following the steps described in [GAMOS Primer tutorial](https://fismed.ciemat.es/GAMOS/gamos_tutorials.php).
 
 # Documentation
 ------------------------------------------------------------------------------------------------------------------------------
